@@ -1,12 +1,25 @@
 import Image from 'next/image';
-import { Trees, ShieldCheck, Landmark, Award, Maximize, MapPin } from 'lucide-react';
+import { Trees, ShieldCheck, Landmark, Award, Maximize, MapPin, MessageCircle } from 'lucide-react';
 
 export default function Home() {
+  const whatsappUrl = "https://wa.me/8801835105772?text=" + encodeURIComponent("Hello, I am interested in learning more about 3S Land Developers plots.");
+
   return (
-    <main className="flex min-h-screen flex-col bg-slate-50 text-slate-900">
+    <main className="flex min-h-screen flex-col bg-slate-50 text-slate-900 relative">
       
+      {/* Floating WhatsApp Button */}
+      <a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50 bg-emerald-600 hover:bg-emerald-500 text-white p-4 rounded-full shadow-2xl transition-all transform hover:scale-105 flex items-center justify-center border-2 border-white"
+        aria-label="Contact on WhatsApp"
+      >
+        <MessageCircle className="w-7 h-7" />
+      </a>
+
       {/* Navigation */}
-      <nav className="w-full p-6 border-b border-slate-200 flex justify-between items-center bg-white sticky top-0 z-50 shadow-sm">
+      <nav className="w-full p-6 border-b border-slate-200 flex justify-between items-center bg-white sticky top-0 z-40 shadow-sm">
         <div className="font-bold text-xl tracking-tighter text-emerald-900">3S LAND DEVELOPERS</div>
         <a 
           href="#contact" 
@@ -16,9 +29,8 @@ export default function Home() {
         </a>
       </nav>
 
-      {/* Hero Section with Background Image Overlay */}
+      {/* Hero Section */}
       <section className="relative w-full py-32 px-6 flex flex-col items-center justify-center text-center bg-slate-900 text-white overflow-hidden">
-        {/* Background Image */}
         <div className="absolute inset-0 z-0 opacity-40">
           <Image 
             src="/images/wide.jpg" 
@@ -28,10 +40,8 @@ export default function Home() {
             priority
           />
         </div>
-        {/* Gradient Overlay for Text Legibility */}
         <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-900/70 to-slate-950/90 z-0" />
 
-        {/* Hero Content */}
         <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
           <span className="px-3 py-1 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-bold rounded-full mb-6 uppercase tracking-wider backdrop-blur-sm">
             Over 20 Years of Excellence
@@ -209,6 +219,28 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Location Map Section */}
+      <section className="w-full py-20 px-6 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-4 text-emerald-900">Project Location</h2>
+          <p className="text-center text-slate-600 mb-8 max-w-xl mx-auto">
+            Situated at Atibazar, Keraniganj Model Town, Dhaka. Conveniently connected to major highways.
+          </p>
+          <div className="w-full h-96 rounded-xl overflow-hidden border border-slate-200 shadow-sm">
+            <iframe
+              title="3S Land Developers Location"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14611.834190897595!2d90.3235!3d23.7122!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8ef6b4d320d%3A0xa1d556a3e5c9b7e1!2sAtibazar%2C%20Keraniganj!5e0!3m2!1sen!2sbd!4v1700000000000!5m2!1sen!2sbd"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen={false}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Call to Action */}
       <section id="contact" className="w-full py-20 px-6 bg-emerald-800 text-white text-center flex flex-col items-center">
         <h2 className="text-3xl font-bold mb-4">Ready to Secure Your Plot?</h2>
@@ -223,7 +255,7 @@ export default function Home() {
             Call Us Now
           </a>
           <a 
-            href="https://wa.me/8801835105772?text=Hello,%20I%20am%20interested%20in%20learning%20more%20about%203S%20Land%20Developers%20plots." 
+            href={whatsappUrl}
             target="_blank" 
             rel="noopener noreferrer"
             className="px-8 py-4 border-2 border-white text-white font-bold rounded-lg hover:bg-emerald-900 transition-colors text-center"
@@ -233,7 +265,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer with AN Digital Studio Branding */}
+      {/* Footer */}
       <footer className="w-full py-12 px-6 bg-slate-900 text-slate-400 text-center border-t border-slate-800">
         <div className="max-w-6xl mx-auto flex flex-col items-center">
           <div className="font-bold text-2xl text-white mb-2 tracking-tighter">3S LAND DEVELOPERS</div>
