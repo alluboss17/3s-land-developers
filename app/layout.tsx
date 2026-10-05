@@ -14,15 +14,22 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "3S Land Developers | Obokash Lake View Society",
-  description: "Premium, hassle-free land plots in Keraniganj. 20 years of trusted reputation, 100% legal land, and modern urban amenities.",
+  description: "Premium, hassle-free land plots in Keraniganj. 20 years of trusted reputation.",
 };
-export default function RootLayout({ children }: LayoutProps<"/">) {
+import Navbar from '@/components/Navbar';
+import './globals.css';
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en">
+      <body className="antialiased text-slate-900">
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
