@@ -1,13 +1,15 @@
 'use client';
 
 import { useState } from 'react';
-import HeroSearch from '@/components/Hero';
 import Image from 'next/image';
-import { Trees, ShieldCheck, Landmark, Award, Maximize, MapPin, MessageCircle, Download, CheckCircle, X } from 'lucide-react';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { Trees, ShieldCheck, Landmark, Award, MessageCircle, Download, X, ArrowRight } from 'lucide-react';
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPlot, setSelectedPlot] = useState('');
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const whatsappUrl = "https://wa.me/8801835105772?text=" + encodeURIComponent("Hello, I am interested in learning more about 3S Land Developers plots.");
 
@@ -17,246 +19,339 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col bg-slate-50 text-slate-900 relative">
-      
+    <main className="flex min-h-screen flex-col bg-white text-slate-900 relative selection:bg-emerald-900 selection:text-white">
+
       {/* Floating WhatsApp Button */}
       <a
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-50 bg-emerald-600 hover:bg-emerald-500 text-white p-4 rounded-full shadow-2xl transition-all transform hover:scale-105 flex items-center justify-center border-2 border-white"
+        className="fixed bottom-8 right-8 z-50 bg-slate-950 hover:bg-emerald-800 text-white p-4 rounded-full shadow-2xl transition-all duration-500 transform hover:scale-105 flex items-center justify-center border border-white/20"
         aria-label="Contact on WhatsApp"
       >
-        <MessageCircle className="w-7 h-7" />
+        <MessageCircle className="w-6 h-6" />
       </a>
 
       {/* Hero Section */}
-      <section className="relative w-full py-32 px-6 flex flex-col items-center justify-center text-center bg-slate-900 text-white min-h-[90vh] overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-40">
+      <section className="relative w-full py-32 px-6 flex flex-col items-center justify-center text-center bg-slate-950 text-white min-h-screen overflow-hidden">
+        <div className="absolute inset-0 z-0 opacity-60">
           <Image 
             src="/images/wide.jpg" 
             alt="3S Land Developers Project Site" 
             fill 
-            className="object-cover"
+            className="object-cover scale-105 transform motion-safe:animate-pulse-slow"
             priority
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-900/70 to-slate-950 z-0" />
+        {/* Refined gradient for deeper luxury contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/50 to-slate-950 z-0" />
 
-        <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center mt-6">
-          <span className="px-4 py-1.5 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-bold rounded-full mb-6 uppercase tracking-widest backdrop-blur-md">
+        <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center mt-12">
+          <motion.span 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="text-emerald-400 text-[10px] font-semibold uppercase tracking-[0.3em] mb-8"
+          >
             Over 20 Years of Unblemished Reputation
-          </span>
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 text-white drop-shadow-lg">
-            Trusted Housing & <br className="hidden md:block" />Land Development
-          </h1>
-          <p className="text-lg md:text-xl text-slate-300 max-w-2xl mb-10 leading-relaxed font-light">
-            Delivering 100% legal, dispute-free residential and commercial land plots across prime locations, including Obokash Lake View Society.
-          </p>
-          
-          <div className="w-full max-w-4xl">
-            <HeroSearch />
-          </div>
+          </motion.span>
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="text-5xl md:text-7xl lg:text-8xl font-serif tracking-tight mb-8 text-white drop-shadow-2xl leading-tight"
+          >
+            3S LAND  <br className="hidden md:block" />
+            <span className="text-slate-300 italic font-light">DEVELOPERS</span>
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.4 }}
+            className="text-base md:text-lg text-slate-300 max-w-2xl mb-12 leading-loose font-light"
+          >
+            A meticulously planned 100-acre community delivering 100% legal, dispute-free premium land plots ready for visionary development.
+          </motion.p>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.6 }}
+            className="flex flex-col sm:flex-row gap-6 w-full justify-center max-w-md"
+          >
+            <button 
+              onClick={() => handlePlotClick('Abakash Premium')}
+              className="px-8 py-4 bg-white text-slate-950 hover:bg-emerald-800 hover:text-white text-xs font-bold uppercase tracking-[0.2em] transition-all duration-500"
+            >
+              Register Interest
+            </button>
+            <a 
+              href="#gallery"
+              className="px-8 py-4 bg-transparent border border-slate-500 text-white hover:border-white hover:bg-white/5 text-xs font-bold uppercase tracking-[0.2em] transition-all duration-500 flex items-center justify-center"
+            >
+              View Site
+            </a>
+          </motion.div>
         </div>
       </section>
 
-      {/* Luxury Key Metrics / Scale Banner */}
-      <section className="w-full bg-slate-950 border-y border-slate-800 py-10 px-6 text-white relative z-20 shadow-2xl">
-        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          <div className="border-r border-slate-800/60 last:border-none">
-            <div className="text-3xl md:text-5xl font-extrabold text-emerald-400 tracking-tight">20+</div>
-            <div className="text-xs md:text-sm font-medium text-slate-400 uppercase tracking-wider mt-2">Years of Excellence</div>
-          </div>
-          <div className="border-r border-slate-800/60 last:border-none">
-            <div className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">100%</div>
-            <div className="text-xs md:text-sm font-medium text-slate-400 uppercase tracking-wider mt-2">Legal Dispute Free</div>
-          </div>
-          <div className="border-r border-slate-800/60 last:border-none">
-            <div className="text-3xl md:text-5xl font-extrabold text-emerald-400 tracking-tight">500+</div>
-            <div className="text-xs md:text-sm font-medium text-slate-400 uppercase tracking-wider mt-2">Acres Developed</div>
-          </div>
-          <div>
-            <div className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">1,200+</div>
-            <div className="text-xs md:text-sm font-medium text-slate-400 uppercase tracking-wider mt-2">Plots Handed Over</div>
-          </div>
+      {/* Luxury Key Metrics */}
+      <motion.section 
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1.2 }}
+        className="w-full bg-slate-950 py-16 px-6 text-white relative z-20"
+      >
+        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-12 text-center divide-x divide-slate-800/50">
+          {[
+            { value: "20+", label: "Years of Excellence" },
+            { value: "100%", label: "Legal & Dispute Free" },
+            { value: "99+", label: "Acres Developed" },
+            { value: "300+", label: "Premium Plots Sold" }
+          ].map((metric, idx) => (
+            <div key={idx} className="flex flex-col items-center justify-center pl-4 first:pl-0">
+              <div className="text-3xl md:text-5xl font-serif font-light text-white tracking-tight">{metric.value}</div>
+              <div className="text-[10px] md:text-xs font-semibold text-slate-500 uppercase tracking-[0.2em] mt-4">{metric.label}</div>
+            </div>
+          ))}
         </div>
-      </section>
+      </motion.section>
 
       {/* About Section */}
-      <section id="about" className="w-full py-24 px-6 bg-white text-slate-800">
+      <motion.section 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 1 }}
+        id="about" 
+        className="w-full py-32 px-6 bg-white text-slate-800"
+      >
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-extrabold mb-8 text-slate-900 tracking-tight">Building Trust for Over 2 Decades</h2>
-          <p className="text-lg leading-relaxed mb-6 text-slate-600 font-normal">
-            Welcome to 3S Land Developers. We are a progressive, customer-centric organization serving the housing, land development, land filling, land trading, and real estate sectors with an unblemished reputation for over 20 years.
-          </p>
-          <p className="text-lg leading-relaxed mb-6 text-slate-600 font-normal">
-            Every plot across our projects—including our premier <strong>Obokash Lake View Society</strong>—is completely free from legal disputes and encumbrances. Customers are welcome to verify land ownership and deed authenticity at any time.
-          </p>
-          <p className="text-lg leading-relaxed text-slate-600 font-normal">
-            We build planned communities featuring wide roads, 24/7 security, playgrounds, and parks. All construction utilizes BUET-tested materials and is supervised by top structural engineers to guarantee sustainable, earthquake-resistant development.
-          </p>
-        </div>
-      </section>
-
-      {/* Available Plot Sizes */}
-      <section id="plots" className="w-full py-24 px-6 bg-slate-100/70 border-y border-slate-200">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
-            <div>
-              <span className="text-emerald-700 font-bold uppercase tracking-widest text-xs">Inventory Overview</span>
-              <h2 className="text-4xl font-extrabold text-slate-900 tracking-tight mt-1">Available Land Plot Sizes</h2>
-            </div>
-            <p className="text-slate-600 max-w-md mt-4 md:mt-0 text-sm">
-              Click any plot size below to request detailed plot maps, pricing matrices, and registration terms.
+          <span className="text-emerald-800 text-[10px] font-semibold uppercase tracking-[0.3em] mb-6 block">Our Heritage</span>
+          <h2 className="text-4xl md:text-5xl font-serif mb-10 text-slate-950 tracking-tight leading-tight">Building Trust for <br/>Over Two Decades</h2>
+          <div className="space-y-8 text-base md:text-lg leading-relaxed text-slate-500 font-light">
+            <p>
+              Welcome to 3S Land Developers. We are a progressive, customer-centric organization specializing exclusively in land development, land filling, and plot trading with an unblemished reputation.
+            </p>
+            <p>
+              Every plot across our projects—including our premier <strong>Abakash Lake View Society</strong>—is completely free from legal disputes and encumbrances. Customers are welcome to verify land ownership and deed authenticity at any time.
+            </p>
+            <p>
+              We deliver meticulously demarcated land plots within planned communities featuring wide access roads, 24/7 security, playgrounds, and parks, providing the perfect foundation for your legacy.
             </p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 text-center">
+        </div>
+      </motion.section>
+
+      {/* Available Plot Sizes */}
+      <motion.section 
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1 }}
+        id="plots" 
+        className="w-full py-32 px-6 bg-slate-50"
+      >
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <div>
+              <span className="text-emerald-800 text-[10px] font-semibold uppercase tracking-[0.3em] block mb-4">Inventory Overview</span>
+              <h2 className="text-4xl md:text-5xl font-serif text-slate-950 tracking-tight">Curated Plot Sizes</h2>
+            </div>
+            <p className="text-slate-500 max-w-sm text-sm font-light leading-relaxed">
+              Select a dimension below to request detailed plot maps, pricing matrices, and registration terms from our executive team.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-px bg-slate-200 border border-slate-200">
             {['3 Katha', '4 Katha', '5 Katha', '10 Katha', '15 Katha', '20 Katha', '30 Katha', '40 Katha', '50 Katha', '70+ Katha'].map((size) => (
               <button 
                 key={size} 
                 onClick={() => handlePlotClick(size)}
-                className="p-8 bg-white rounded-2xl shadow-sm border border-slate-200 hover:border-emerald-600 hover:shadow-xl transition-all cursor-pointer group flex flex-col items-center justify-center"
+                className="py-12 px-6 bg-slate-50 hover:bg-white transition-all duration-500 cursor-pointer group flex flex-col items-center justify-center relative overflow-hidden"
               >
-                <span className="font-extrabold text-2xl text-slate-800 group-hover:text-emerald-700 transition-colors">{size}</span>
-                <span className="text-xs text-emerald-600 font-semibold mt-2 opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
-                  Request Details →
+                <span className="font-serif text-2xl text-slate-900 group-hover:text-emerald-800 transition-colors z-10">{size}</span>
+                <span className="text-[10px] text-slate-400 uppercase tracking-widest mt-4 opacity-0 group-hover:opacity-100 transition-opacity z-10 flex items-center gap-1">
+                  Inquire <ArrowRight className="w-3 h-3" />
                 </span>
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-emerald-50/50 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 z-0" />
               </button>
             ))}
           </div>
 
-          <div className="mt-12 p-8 bg-emerald-950 text-emerald-100 rounded-2xl text-center shadow-lg flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="text-left">
-              <h3 className="text-xl font-bold text-white mb-1">100% Legal Dispute-Free Guarantee</h3>
-              <p className="text-slate-300 text-sm">Every land plot is fully filled, demarcated with wide access roads, and ready for immediate deed registration.</p>
+          {/* Brochure Banner */}
+          <div className="mt-20 p-10 bg-slate-950 text-white flex flex-col md:flex-row items-center justify-between gap-8 border border-slate-800">
+            <div className="text-left max-w-2xl">
+              <h3 className="text-2xl font-serif mb-3 tracking-tight">100% Legal Dispute-Free Guarantee</h3>
+              <p className="text-slate-400 text-sm font-light leading-relaxed">Every land plot is fully filled, demarcated with wide access roads, and ready for immediate deed registration.</p>
             </div>
             <button 
-              onClick={() => handlePlotClick('General Inquiry')}
-              className="px-6 py-3.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold rounded-xl transition-colors shrink-0 flex items-center gap-2"
+              onClick={() => handlePlotClick('Brochure Request')}
+              className="px-8 py-4 bg-emerald-900 hover:bg-emerald-800 text-white text-xs font-bold uppercase tracking-[0.2em] transition-colors shrink-0 flex items-center gap-3 border border-emerald-800"
             >
               <Download className="w-4 h-4" /> Download Brochure
             </button>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Planned Community Amenities */}
-      <section className="w-full max-w-6xl mx-auto py-24 px-6">
-        <h2 className="text-4xl font-extrabold text-center mb-16 text-slate-900 tracking-tight">Planned Community Infrastructure</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div className="p-10 bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-lg transition-all flex flex-col items-center text-center">
-            <Landmark className="w-12 h-12 text-emerald-600 mb-6" strokeWidth={1.5} />
-            <h3 className="font-bold text-lg text-slate-900">Central Mosque & Civic Spaces</h3>
-          </div>
-          <div className="p-10 bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-lg transition-all flex flex-col items-center text-center">
-            <ShieldCheck className="w-12 h-12 text-emerald-600 mb-6" strokeWidth={1.5} />
-            <h3 className="font-bold text-lg text-slate-900">24/7 Security & Wide Roads</h3>
-          </div>
-          <div className="p-10 bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-lg transition-all flex flex-col items-center text-center">
-            <Trees className="w-12 h-12 text-emerald-600 mb-6" strokeWidth={1.5} />
-            <h3 className="font-bold text-lg text-slate-900">Parks & Green Belts</h3>
-          </div>
-          <div className="p-10 bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-lg transition-all flex flex-col items-center text-center">
-            <Award className="w-12 h-12 text-emerald-600 mb-6" strokeWidth={1.5} />
-            <h3 className="font-bold text-lg text-slate-900">BUET-Tested Engineering</h3>
-          </div>
-        </div>
-      </section>
-
-      {/* Active Development Progress with Luxury Badges */}
-      <section className="w-full py-24 px-6 bg-white border-t border-slate-200">
+      <motion.section 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 1 }}
+        className="w-full py-32 px-6 bg-white"
+      >
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="text-emerald-700 font-bold uppercase tracking-widest text-xs">Live Site Documentation</span>
-            <h2 className="text-4xl font-extrabold text-slate-900 tracking-tight mt-1">Active Ground Operations</h2>
+          <div className="text-center mb-20">
+            <span className="text-emerald-800 text-[10px] font-semibold uppercase tracking-[0.3em] mb-4 block">Infrastructure</span>
+            <h2 className="text-4xl md:text-5xl font-serif text-slate-950 tracking-tight">Master-Planned Community</h2>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="relative h-80 w-full rounded-2xl overflow-hidden shadow-md group">
-              <Image src="/images/board.jpg" alt="Obokash Lake View Project Signboard" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-              <div className="absolute top-4 left-4 bg-slate-950/80 backdrop-blur-md px-4 py-2 rounded-lg border border-slate-800 text-xs text-white font-medium">
-                Obokash Lake View Society Entrance
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+            {[
+              { icon: Landmark, title: "Central Mosque & Civic Spaces" },
+              { icon: ShieldCheck, title: "24/7 Security & Wide Roads" },
+              { icon: Trees, title: "Parks & Green Belts" },
+              { icon: Award, title: "Premium Plot Demarcation" }
+            ].map((Feature, idx) => (
+              <div key={idx} className="flex flex-col items-center text-center group">
+                <div className="w-20 h-20 rounded-full bg-slate-50 flex items-center justify-center mb-6 group-hover:bg-emerald-950 group-hover:text-white transition-colors duration-500 text-slate-800">
+                  <Feature.icon className="w-8 h-8" strokeWidth={1} />
+                </div>
+                <h3 className="font-serif text-lg text-slate-900">{Feature.title}</h3>
               </div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Interactive Luxury Gallery Teaser */}
+      <section id="gallery" className="w-full py-32 px-6 bg-slate-950 border-t border-slate-900">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-6">
+            <div>
+              <span className="text-slate-500 text-[10px] font-semibold uppercase tracking-[0.3em] block mb-4">Site Documentation</span>
+              <h2 className="text-4xl md:text-5xl font-serif text-white tracking-tight">The Vision Taking Shape</h2>
             </div>
-            <div className="relative h-80 w-full rounded-2xl overflow-hidden shadow-md group">
-              <Image src="/images/wide.jpg" alt="Vast Land Development View" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-              <div className="absolute top-4 left-4 bg-slate-950/80 backdrop-blur-md px-4 py-2 rounded-lg border border-slate-800 text-xs text-white font-medium">
-                Demarcated Plot Zones
-              </div>
-            </div>
-            <div className="relative h-80 w-full rounded-2xl overflow-hidden shadow-md group">
-              <Image src="/images/action.jpg" alt="Heavy Machinery Earthmoving Operations" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-              <div className="absolute top-4 left-4 bg-slate-950/80 backdrop-blur-md px-4 py-2 rounded-lg border border-slate-800 text-xs text-white font-medium">
-                Systematic Land Filling Work
-              </div>
-            </div>
-            <div className="relative h-80 w-full rounded-2xl overflow-hidden shadow-md group">
-              <Image src="/images/rod.jpg" alt="Paved Roads and Boundary Infrastructure" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-              <div className="absolute top-4 left-4 bg-slate-950/80 backdrop-blur-md px-4 py-2 rounded-lg border border-slate-800 text-xs text-white font-medium">
-                Internal Road & Boundary Work
-              </div>
-            </div>
+            {/* Added Link to the new Gallery Page we will build */}
+            <Link 
+              href="/gallery" 
+              className="group flex items-center gap-2 text-xs font-bold text-emerald-500 uppercase tracking-widest hover:text-emerald-400 transition-colors"
+            >
+              View Full Gallery <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1">
+            {[
+              { src: "/images/wide.jpg", title: "Site Overview" },
+              { src: "/images/action.jpg", title: "Land Development" },
+              { src: "/images/rod.jpg", title: "Infrastructure" },
+              { src: "/images/board.jpg", title: "Abakash Entrance" }
+            ].map((img, idx) => (
+              <motion.div 
+                key={idx}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: idx * 0.1 }}
+                viewport={{ once: true }}
+                className="relative h-[400px] w-full cursor-pointer overflow-hidden group bg-slate-900"
+                onClick={() => setSelectedImage(img.src)}
+              >
+                <Image src={img.src} alt={img.title} fill className="object-cover transition-transform duration-1000 group-hover:scale-105 opacity-80 group-hover:opacity-100" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+                <div className="absolute bottom-8 left-8">
+                  <span className="text-white text-[10px] font-semibold uppercase tracking-[0.2em] opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-4 group-hover:translate-y-0 block">
+                    {img.title}
+                  </span>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
+      {/* Full Screen Image Modal */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 z-[70] bg-slate-950/95 backdrop-blur-xl flex items-center justify-center p-4"
+          onClick={() => setSelectedImage(null)}
+        >
+          <button className="absolute top-8 right-8 text-slate-500 hover:text-white transition-colors">
+            <X className="w-8 h-8" strokeWidth={1} />
+          </button>
+          <div className="relative w-full max-w-7xl h-[85vh]">
+            <Image src={selectedImage} alt="Gallery view" fill className="object-contain" />
+          </div>
+        </div>
+      )}
+
       {/* Call to Action */}
-      <section className="w-full py-24 px-6 bg-slate-950 text-white text-center flex flex-col items-center relative overflow-hidden">
-        <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-96 bg-emerald-600/10 rounded-full blur-3xl pointer-events-none" />
-        <h2 className="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight relative z-10">Ready to Secure Your Plot?</h2>
-        <p className="text-lg text-slate-400 max-w-2xl mb-10 font-light relative z-10">
-          Contact our team today to verify deed documentation, schedule a site tour, or request pricing details.
+      <motion.section 
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1 }}
+        className="w-full py-32 px-6 bg-slate-50 text-slate-950 text-center flex flex-col items-center"
+      >
+        <span className="text-emerald-800 text-[10px] font-semibold uppercase tracking-[0.3em] mb-6 block">Next Steps</span>
+        <h2 className="text-4xl md:text-6xl font-serif mb-8 tracking-tight">Ready to Secure Your Plot?</h2>
+        <p className="text-base md:text-lg text-slate-600 max-w-2xl mb-12 font-light leading-relaxed">
+          Contact our executive team today to verify deed documentation, schedule a private site tour, or request detailed pricing configurations.
         </p>
         <a 
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="px-10 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl shadow-xl transition-all relative z-10"
+          className="px-10 py-5 bg-slate-950 hover:bg-emerald-900 text-white text-xs font-bold uppercase tracking-[0.2em] transition-all duration-500 shadow-xl shadow-slate-900/10"
         >
-          Schedule Site Visit
+          Schedule Consultation
         </a>
-      </section>
+      </motion.section>
 
       {/* Footer */}
-      <footer className="w-full py-16 px-6 bg-slate-950 text-slate-400 text-center border-t border-slate-900">
+      <footer className="w-full py-20 px-6 bg-slate-950 text-slate-500 text-center border-t border-slate-900">
         <div className="max-w-6xl mx-auto flex flex-col items-center">
-          <div className="font-extrabold text-2xl text-white mb-3 tracking-widest">3S LAND DEVELOPERS</div>
-          <p className="mb-8 max-w-md text-slate-400 text-sm leading-relaxed">
-            Premium housing, land filling, trading, and structural development with 20 years of trusted reputation in Bangladesh.
+          <div className="font-serif text-3xl text-white mb-6 tracking-tight">3S Land Developers</div>
+          <p className="mb-12 max-w-md text-slate-400 text-sm font-light leading-relaxed">
+            Premium land filling, trading, and development with a two-decade legacy of absolute trust.
           </p>
-          
-          <div className="my-4 pt-6 border-t border-slate-900 w-full max-w-xs flex flex-col items-center">
-            <span className="text-xs text-slate-500 mb-2 uppercase tracking-widest font-semibold">Digital Partner</span>
+
+          <div className="my-8 pt-8 border-t border-slate-800/50 w-full max-w-xs flex flex-col items-center">
+            <span className="text-[9px] text-slate-600 mb-3 uppercase tracking-[0.3em] font-semibold">Digital Partner</span>
             <a 
               href="https://andigitalstudio.com" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-xs font-bold text-emerald-400 hover:text-emerald-300 transition-colors tracking-widest uppercase flex items-center gap-1"
+              className="text-[10px] font-bold text-slate-300 hover:text-white transition-colors tracking-[0.2em] uppercase flex items-center gap-2"
             >
-              AN Digital Studio ↗
+              AN Digital Studio <ArrowRight className="w-3 h-3" />
             </a>
           </div>
 
-          <p className="text-xs text-slate-600 mt-4">© {new Date().getFullYear()} 3S Land Developers. All rights reserved.</p>
+          <p className="text-xs text-slate-600 mt-4 font-light tracking-wide">© {new Date().getFullYear()} 3S Land Developers. All rights reserved.</p>
         </div>
       </footer>
 
       {/* Lead Generation Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl relative border border-slate-200">
+        <div className="fixed inset-0 z-[60] bg-slate-950/60 backdrop-blur-md flex items-center justify-center p-4">
+          <div className="bg-white p-10 max-w-md w-full shadow-2xl relative">
             <button 
               onClick={() => setIsModalOpen(false)}
-              className="absolute top-6 right-6 text-slate-400 hover:text-slate-600"
+              className="absolute top-6 right-6 text-slate-400 hover:text-slate-900 transition-colors"
             >
-              <X className="w-6 h-6" />
+              <X className="w-6 h-6" strokeWidth={1.5} />
             </button>
-            
-            <h3 className="text-2xl font-bold text-slate-900 mb-2">
-              Request Plot Portfolio
+
+            <h3 className="text-3xl font-serif text-slate-950 mb-3 tracking-tight">
+              Request Portfolio
             </h3>
-            <p className="text-sm text-slate-600 mb-6">
-              Inquiring for: <span className="font-bold text-emerald-700">{selectedPlot || 'General Plot Info'}</span>
+            <p className="text-sm text-slate-500 mb-8 font-light">
+              Inquiring regarding: <span className="font-semibold text-emerald-800">{selectedPlot || 'General Plot Info'}</span>
             </p>
 
             <form 
@@ -269,34 +364,34 @@ export default function Home() {
                 window.open(`https://wa.me/8801835105772?text=${encodeURIComponent(message)}`, '_blank');
                 setIsModalOpen(false);
               }}
-              className="space-y-4"
+              className="space-y-6"
             >
               <div>
-                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Full Name</label>
+                <label className="block text-[10px] font-bold text-slate-900 uppercase tracking-[0.2em] mb-3">Full Name</label>
                 <input 
                   type="text" 
                   name="name"
                   required 
                   placeholder="e.g. Tanvir Ahmed" 
-                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none text-slate-900"
+                  className="w-full px-4 py-4 bg-slate-50 border border-slate-200 focus:border-emerald-800 outline-none text-slate-900 text-sm transition-colors rounded-none"
                 />
               </div>
               <div>
-                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Phone / WhatsApp Number</label>
+                <label className="block text-[10px] font-bold text-slate-900 uppercase tracking-[0.2em] mb-3">Phone / WhatsApp</label>
                 <input 
                   type="tel" 
                   name="phone"
                   required 
                   placeholder="+880 17XXXXXXXX" 
-                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none text-slate-900"
+                  className="w-full px-4 py-4 bg-slate-50 border border-slate-200 focus:border-emerald-800 outline-none text-slate-900 text-sm transition-colors rounded-none"
                 />
               </div>
 
               <button 
                 type="submit"
-                className="w-full py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition-colors mt-4"
+                className="w-full py-5 bg-slate-950 hover:bg-emerald-900 text-white text-xs font-bold uppercase tracking-[0.2em] transition-colors mt-6"
               >
-                Send Request via WhatsApp
+                Send via WhatsApp
               </button>
             </form>
           </div>
