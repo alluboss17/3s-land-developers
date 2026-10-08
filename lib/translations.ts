@@ -47,7 +47,6 @@ export const translations = {
     plots: {
       badge: "Inventory",
       title: "Available Plot Sizes",
-      
       subtitle: "From compact residential spaces to expansive commercial zones, select the footprint that matches your vision."
     },
     calculator: {
@@ -90,8 +89,14 @@ export const translations = {
       title: "Secure Your Plot Today",
       subtitle: "Connect with our sales directors on WhatsApp for current availability, legal documentation, and site visits.",
       btn: "Contact via WhatsApp"
+    },
+    footer: {
+      description: "Premium land filling, trading, and development with a two-decade legacy of absolute trust. Delivering 100% legal, dispute-free plots.",
+      explore: "Explore",
+      contact: "Contact",
+      copyright: "3S Land Developers. All rights reserved.",
+      digitalPartner: "Digital Partner"
     }
-    
   },
   bn: {
     nav: {
@@ -142,8 +147,6 @@ export const translations = {
       badge: "ইনভেন্টরি",
       title: "উপলব্ধ প্লটের আকার",
       subtitle: "ছোট আবাসিক প্লট থেকে শুরু করে বড় বাণিজ্যিক জোন পর্যন্ত, আপনার স্বপ্নের সাথে মানানসই আয়তন বেছে নিন।"
-      
-    
     },
     calculator: {
       badge: "বিনিয়োগ পরিকল্পনা",
@@ -185,7 +188,13 @@ export const translations = {
       title: "আজই আপনার প্লট বুক করুন",
       subtitle: "বর্তমান প্রাপ্যতা, আইনি কাগজপত্র এবং সাইট পরিদর্শনের জন্য হোয়াটসঅ্যাপে আমাদের সেলস ডিরেক্টরদের সাথে যোগাযোগ করুন।",
       btn: "হোয়াটসঅ্যাপে যোগাযোগ করুন"
+    },
+    footer: {
+      description: "দুই দশকের আস্থার সাথে প্রিমিয়াম জমি ভরাট, ট্রেডিং এবং উন্নয়ন। ১০০% আইনি ও নিষ্কণ্টক প্লট সরবরাহ করা হচ্ছে।",
+      explore: "অন্বেষণ করুন",
+      contact: "যোগাযোগ",
+      copyright: "থ্রি এস ল্যান্ড ডেভেলপারস। সর্বস্বত্ব সংরক্ষিত।",
+      digitalPartner: "ডিজিটাল পার্টনার"
     }
   }
 };
-

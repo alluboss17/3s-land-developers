@@ -9,7 +9,6 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const { language, toggleLanguage } = useLanguage();
   
-  // Pull navigation translations based on current language
   const t = translations[language].nav; 
 
   return (
@@ -23,19 +22,22 @@ export default function Navbar() {
             </span>
           </Link>
 
+          {/* Desktop Navigation Links */}
           <nav className="hidden md:flex items-center gap-8">
-            {/* Notice how we use {t.projects} instead of hardcoded "Projects" */}
             <Link href="/projects" className="text-sm font-medium text-slate-300 hover:text-amber-400 transition-colors">
               {t.projects}
             </Link>
             <Link href="/about" className="text-sm font-medium text-slate-300 hover:text-amber-400 transition-colors">
               {t.about}
             </Link>
+            <Link href="/gallery" className="text-sm font-medium text-slate-300 hover:text-amber-400 transition-colors">
+              {t.gallery}
+            </Link>
             <Link href="/contact" className="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm rounded-lg transition-all">
               {t.inquire}
             </Link>
             
-            {/* The Translation Toggle Button */}
+            {/* Translation Toggle Button */}
             <button 
               onClick={toggleLanguage}
               className="ml-4 text-xs font-bold tracking-widest text-slate-400 hover:text-white uppercase border border-slate-700 px-3 py-1.5 rounded-full transition-colors"
@@ -44,10 +46,61 @@ export default function Navbar() {
             </button>
           </nav>
 
-          {/* ... Keep your existing mobile hamburger menu code here ... */}
-          
+          {/* Mobile Hamburger Toggle Button */}
+          <div className="flex md:hidden">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              type="button"
+              className="p-2 rounded-md text-slate-300 hover:text-white hover:bg-slate-800 focus:outline-none"
+              aria-label="Toggle Navigation Menu"
+            >
+              {isOpen ? (
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              )}
+            </button>
+          </div>
         </div>
       </div>
+
+      {/* Mobile Menu Dropdown */}
+      {isOpen && (
+        <div className="md:hidden bg-slate-900 border-b border-slate-800 px-4 pt-3 pb-6 space-y-3">
+          <Link
+            href="/projects"
+            onClick={() => setIsOpen(false)}
+            className="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:text-amber-400 hover:bg-slate-800"
+          >
+            {t.projects}
+          </Link>
+          <Link
+            href="/about"
+            onClick={() => setIsOpen(false)}
+            className="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:text-amber-400 hover:bg-slate-800"
+          >
+            {t.about}
+          </Link>
+          <Link
+            href="/gallery"
+            onClick={() => setIsOpen(false)}
+            className="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:text-amber-400 hover:bg-slate-800"
+          >
+            {t.gallery}
+          </Link>
+          <Link
+            href="/contact"
+            onClick={() => setIsOpen(false)}
+            className="block w-full text-center mt-2 px-4 py-2.5 bg-emerald-600 text-white font-semibold rounded-lg shadow-md"
+          >
+            {t.inquire}
+          </Link>
+        </div>
+      )}
     </header>
   );
 }
