@@ -71,19 +71,19 @@ export default function Gallery() {
       id: 4,
       title: t.items.road,
       category: 'infrastructure' as GalleryCategory,
-      image: '/images/wide.jpg',
+      image: '/images/site-3.jpg',
     },
     {
       id: 5,
       title: t.items.aerial,
       category: 'layouts' as GalleryCategory,
-      image: '/images/board.jpg',
+      image: '/images/site-1.jpg',
     },
     {
       id: 6,
       title: t.items.clearing,
       category: 'landFilling' as GalleryCategory,
-      image: '/images/action.jpg',
+      image: '/images/site-4.jpg',
     },
   ];
 
