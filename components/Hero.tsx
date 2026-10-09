@@ -1,8 +1,8 @@
 'use client';
 
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { Search } from "lucide-react";
+import { useState, type FormEvent } from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
+import { MessageCircle } from 'lucide-react';
 import { translations } from '@/lib/translations';
 
 interface HeroSearchProps {
@@ -10,73 +10,121 @@ interface HeroSearchProps {
 }
 
 export default function HeroSearch({ lang }: HeroSearchProps) {
-  const [project, setProject] = useState("");
-  const [plotSize, setPlotSize] = useState("");
-  const [zone, setZone] = useState("");
-  
+  const [plotSize, setPlotSize] = useState('');
+  const [plotType, setPlotType] = useState('');
+  const reduceMotion = useReducedMotion() ?? false;
+  const isBn = lang === 'bn';
   const t = translations[lang].search;
 
+  const submitInquiry = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const message = isBn
+      ? `হ্যালো ৩এস ল্যান্ড ডেভেলপারস, আমি অবকাশ লেক ভিউ সোসাইটির প্লট সম্পর্কে জানতে চাই। প্লটের আয়তন: ${plotSize || 'যেকোনো আয়তন'}। ধরন: ${plotType || 'যেকোনো ধরন'}।`
+      : `Hello 3S Land Developers, I would like to ask about plots at Abakash Lake View Society. Plot size: ${plotSize || 'Any size'}. Plot type: ${plotType || 'Any type'}.`;
+
+    window.open(
+      `https://wa.me/8801835105772?text=${encodeURIComponent(message)}`,
+      '_blank',
+      'noopener,noreferrer'
+    );
+  };
+
   return (
-    <motion.div 
-      initial={{ opacity: 0, y: 30 }}
+    <motion.form
+      onSubmit={submitInquiry}
+      initial={{ opacity: 0, y: reduceMotion ? 0 : 14 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: 0.3 }}
-      className="w-full max-w-5xl bg-slate-950/80 backdrop-blur-xl border border-white/15 p-6 md:p-8 shadow-2xl mt-12 text-left"
+      transition={{ duration: reduceMotion ? 0 : 0.55 }}
+      className="w-full border border-white/15 bg-slate-950/85 p-4 text-left shadow-2xl backdrop-blur-xl sm:p-6 md:p-8"
     >
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 items-end">
-      
-        {/* Project Dropdown */}
-        <div className="flex flex-col">
-          <label className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-2">{t.devLabel}</label>
-          <select 
-            className="bg-white/5 border border-white/20 rounded-none p-3 text-white text-xs font-light tracking-wider outline-none focus:border-white transition-colors cursor-pointer"
-            value={project}
-            onChange={(e) => setProject(e.target.value)}
-          >
-            <option value="" className="bg-slate-950 text-white">{t.allDev}</option>
-            <option value="obokash" className="bg-slate-950 text-white">Abakash Lake View</option>
-            <option value="main-avenue" className="bg-slate-950 text-white">Main Avenue Commercial</option>
-          </select>
-        </div>
-
-        {/* Plot Size Dropdown */}
-        <div className="flex flex-col">
-          <label className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-2">{t.sizeLabel}</label>
-          <select 
-            className="bg-white/5 border border-white/20 rounded-none p-3 text-white text-xs font-light tracking-wider outline-none focus:border-white transition-colors cursor-pointer"
-            value={plotSize}
-            onChange={(e) => setPlotSize(e.target.value)}
-          >
-            <option value="" className="bg-slate-950 text-white">{t.anySize}</option>
-            <option value="3" className="bg-slate-950 text-white">3 Katha</option>
-            <option value="5" className="bg-slate-950 text-white">5 Katha</option>
-            <option value="10" className="bg-slate-950 text-white">10 Katha</option>
-            <option value="20" className="bg-slate-950 text-white">20+ Katha</option>
-          </select>
-        </div>
-
-        {/* Zoning Dropdown */}
-        <div className="flex flex-col">
-          <label className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-2">{t.zoneLabel}</label>
-          <select 
-            className="bg-white/5 border border-white/20 rounded-none p-3 text-white text-xs font-light tracking-wider outline-none focus:border-white transition-colors cursor-pointer"
-            value={zone}
-            onChange={(e) => setZone(e.target.value)}
-          >
-            <option value="" className="bg-slate-950 text-white">{t.allZones}</option>
-            <option value="residential" className="bg-slate-950 text-white">{t.residential}</option>
-            <option value="commercial" className="bg-slate-950 text-white">{t.commercial}</option>
-          </select>
-        </div>
-
-        {/* Search Button */}
+      <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <button className="w-full py-3.5 bg-white hover:bg-slate-200 text-slate-950 font-bold text-xs uppercase tracking-[0.2em] transition-all flex items-center justify-center gap-2">
-            <Search className="w-4 h-4" /> {t.button}
-          </button>
+          <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-emerald-300">
+            {isBn ? 'অবকাশ লেক ভিউ সোসাইটি' : 'Abakash Lake View Society'}
+          </p>
+
+          <h2 className="mt-2 text-lg font-serif text-white sm:text-xl">
+            {isBn ? 'প্লট সম্পর্কে অনুসন্ধান করুন' : 'Enquire about plot options'}
+          </h2>
         </div>
 
+        <p className="text-xs font-light leading-5 text-slate-400">
+          {isBn
+            ? 'বর্তমান প্রাপ্যতা বিক্রয় দলের কাছ থেকে নিশ্চিত করুন।'
+            : 'Confirm current availability with the sales team.'}
+        </p>
       </div>
-    </motion.div>
+
+      <div className="grid grid-cols-1 items-end gap-4 md:grid-cols-[1fr_1fr_auto]">
+        <div className="flex flex-col">
+          <label
+            htmlFor="hero-plot-size"
+            className="mb-2 text-[10px] font-bold uppercase tracking-[0.16em] text-slate-400"
+          >
+            {t.sizeLabel}
+          </label>
+
+          <select
+            id="hero-plot-size"
+            className="min-h-12 w-full border border-white/15 bg-slate-900 px-3 py-3 text-sm text-white outline-none transition-colors focus:border-emerald-400"
+            value={plotSize}
+            onChange={(event) => setPlotSize(event.target.value)}
+          >
+            <option value="" className="bg-slate-950">
+              {t.anySize}
+            </option>
+
+            {['3', '4', '5', '10', '15', '20', '30', '40', '50', '70+'].map(
+              (size) => (
+                <option key={size} value={size} className="bg-slate-950">
+                  {size} {isBn ? 'কাঠা' : 'Katha'}
+                </option>
+              )
+            )}
+          </select>
+        </div>
+
+        <div className="flex flex-col">
+          <label
+            htmlFor="hero-plot-type"
+            className="mb-2 text-[10px] font-bold uppercase tracking-[0.16em] text-slate-400"
+          >
+            {t.zoneLabel}
+          </label>
+
+          <select
+            id="hero-plot-type"
+            className="min-h-12 w-full border border-white/15 bg-slate-900 px-3 py-3 text-sm text-white outline-none transition-colors focus:border-emerald-400"
+            value={plotType}
+            onChange={(event) => setPlotType(event.target.value)}
+          >
+            <option value="" className="bg-slate-950">
+              {t.allZones}
+            </option>
+            <option value="residential" className="bg-slate-950">
+              {t.residential}
+            </option>
+            <option value="commercial" className="bg-slate-950">
+              {t.commercial}
+            </option>
+          </select>
+        </div>
+
+        <button
+          type="submit"
+          className="inline-flex min-h-12 items-center justify-center gap-2 bg-emerald-700 px-5 py-3 text-xs font-bold uppercase tracking-[0.1em] text-white transition-colors hover:bg-emerald-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 md:min-w-52"
+        >
+          <MessageCircle className="h-4 w-4" />
+          {t.button}
+        </button>
+      </div>
+
+      <p className="mt-3 text-[11px] leading-5 text-slate-500">
+        {isBn
+          ? 'এই ফর্মটি সরাসরি প্লট বুক করে না; নির্বাচিত তথ্যসহ হোয়াটসঅ্যাপে বার্তা তৈরি করে।'
+          : 'This form does not reserve a plot; it prepares a WhatsApp inquiry with your selected preferences.'}
+      </p>
+    </motion.form>
   );
 }

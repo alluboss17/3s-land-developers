@@ -1,444 +1,399 @@
 export const translations = {
   en: {
     nav: {
-      projects: "Projects",
-      about: "About",
-      gallery: "Gallery",
-      inquire: "Inquire",
+      projects: 'Project',
+      about: 'About Us',
+      gallery: 'Gallery',
+      inquire: 'Contact Us',
     },
 
     search: {
-      devLabel: "Development",
-      allDev: "All Developments",
-      sizeLabel: "Plot Size",
-      anySize: "Any Size (Katha)",
-      zoneLabel: "Zoning Type",
-      allZones: "All Types",
-      residential: "Residential",
-      commercial: "Commercial",
-      button: "Search Plots",
+      devLabel: 'Project',
+      allDev: 'Abakash Lake View Society',
+      sizeLabel: 'Plot Size',
+      anySize: 'Any Size (Katha)',
+      zoneLabel: 'Plot Type',
+      allZones: 'Any Type',
+      residential: 'Residential',
+      commercial: 'Commercial',
+      button: 'Ask About These Options',
     },
 
     hero: {
-      badge: "Premium Land Development",
-      title1: "Build Your Legacy",
-      title2: "On Solid Ground",
+      badge: 'Abakash Lake View Society',
+      title1: 'Build Your Legacy',
+      title2: 'On Solid Ground',
       subtitle:
-        "Secure your family's future with 100% legal, prime residential and commercial plots in the heart of Dhaka's expansion zones.",
-      ctaPrimary: "Request Portfolio",
-      ctaSecondary: "Explore Gallery",
+        'Explore Abakash Lake View Society by 3S Land Developers. Learn about the development, ask about plot options, and arrange a site visit.',
+      ctaPrimary: 'Request Project Details',
+      ctaSecondary: 'View Project Photos',
     },
 
     metrics: {
-      years: "Years Trust",
-      legal: "Legal Compliance",
-      acres: "Acres Developed",
-      plots: "Plots Handed Over",
+      years: 'Years of Experience',
+      legal: 'Legal Due Diligence',
+      acres: 'Acres Developed',
+      plots: 'Plots Handed Over',
     },
 
     about: {
-      badge: "Our Legacy",
-      title: "Two Decades of Absolute Trust",
+      badge: 'Our Experience',
+      title: 'Over Two Decades in Land Development',
       p1:
-        "At 3S Land Developers, we don't just sell land; we deliver peace of mind. For over 20 years, we have specialized in acquiring, developing, and handing over premium plots.",
+        '3S Land Developers has worked in housing, land development, land filling, and land trading for more than 20 years.',
       p2:
-        "Every plot undergoes rigorous legal vetting to ensure 100% dispute-free ownership, giving our clients complete security in their investment.",
+        'The company states that customers may verify land ownership and deed documents. Buyers should review the relevant documents and contractual terms before making a purchase.',
       p3:
-        "From marshland filling to arterial road paving, our infrastructure development sets the standard for modern planned communities.",
+        'Its work focuses on preparing land and developing planned communities, with roads and shared facilities determined by the plan for each project.',
     },
 
     masterplan: {
-      badge: "Abakash Lake View",
-      title: "Master Layout",
+      badge: 'Abakash Lake View Society',
+      title: 'Project Layout',
       subtitle:
-        "Explore our flagship development featuring integrated sectors, wide avenues, and dedicated community zones.",
-      cta: "Download PDF Layout",
+        'The official project layout will be added when the client provides the approved plan.',
+      cta: 'View Project Layout',
     },
 
     plots: {
-      badge: "Inventory",
-      title: "Available Plot Sizes",
+      badge: 'Plot Inquiries',
+      title: 'Explore Plot Options',
       subtitle:
-        "From compact residential spaces to expansive commercial zones, select the footprint that matches your vision.",
+        'Ask the sales team about plot sizes, current availability, road access, and pricing for Abakash Lake View Society.',
     },
 
     calculator: {
-      badge: "Investment Planning",
-      title: "Payment Calculator",
+      badge: 'Investment Planning',
+      title: 'Plot Price & Down Payment Estimator',
       subtitle:
-        "Configure your plot size and installment tenure to estimate your investment structure.",
-
-      selectSize: "Select Plot Size",
-      selectTenure: "Select Installment Plan",
-      estTotal: "Estimated Total Cost",
-      downPayment: "20% Down Payment",
-      monthlyEst: "Estimated Monthly Installment",
-      inquireBtn: "Inquire About This Plan",
-
-      standardMid: "Standard / Mid",
-      roadSide: "Road Side",
-      corner: "Corner",
-
-      katha: "Katha",
-      month: "Month",
-      months: "Months",
-      monthShort: "mo",
+        'Choose an indicative price within the reported range. The final price and payment terms must be confirmed with the sales team.',
+      selectSize: 'Estimated Plot Price',
+      selectTenure: 'Registration Condition',
+      estTotal: 'Estimated Plot Price',
+      downPayment: '33% Down Payment',
+      monthlyEst: 'Remaining Balance (67%)',
+      inquireBtn: 'Ask About This Estimate',
+      standardMid: 'Standard / Mid',
+      roadSide: 'Road Side',
+      corner: 'Corner',
+      katha: 'Katha',
+      month: 'Month',
+      months: 'Months',
+      monthShort: 'mo',
     },
 
     gallery: {
-      badge: "Visual Updates",
-      title: "Project Progress",
-      cta: "View Full Gallery",
+      badge: 'Project Photography',
+      title: 'Project Progress',
+      cta: 'View All Photos',
     },
 
     cta: {
-      badge: "Take Action",
-      title: "Secure Your Plot Today",
+      badge: 'Your Next Step',
+      title: 'Learn More About Abakash Lake View Society',
       subtitle:
-        "Connect with our sales directors on WhatsApp for current availability, legal documentation, and site visits.",
-      btn: "Contact via WhatsApp",
+        'Contact the team to ask about plot availability, prices, the project layout, and arranging a site visit.',
+      btn: 'Contact the Sales Team',
     },
 
     footer: {
       description:
-        "Premium land filling, trading, and development with a two-decade legacy of absolute trust. Delivering 100% legal, dispute-free plots.",
-      explore: "Explore",
-      contact: "Contact",
-      address:
-        "Ati Bazar, Keraniganj Model, Dhaka-1312, Bangladesh.",
-      copyright: "3S Land Developers. All rights reserved.",
-      digitalPartner: "Digital Partner",
+        'Over 20 years of experience in housing, land development, land filling, and land trading.',
+      explore: 'Explore',
+      contact: 'Contact',
+      address: 'Ati Bazar, Keraniganj Model, Dhaka-1312, Bangladesh.',
+      copyright: '3S Land Developers. All rights reserved.',
+      digitalPartner: 'Digital Partner',
     },
 
     aboutPage: {
-      badge: "Our Legacy",
-      title1: "Two Decades of",
-      title2: "Trust.",
-
+      badge: 'About 3S Land Developers',
+      title1: 'Experience Built on',
+      title2: 'Land.',
       intro:
-        "3S Land Developers is a premier real estate organization serving the land development, filling, and plot trading sectors with an unblemished 20-year reputation.",
-
+        '3S Land Developers is a customer-focused company working in housing, land development, land filling, and land trading for more than 20 years.',
       description:
-        "We focus purely on the foundation of property: the land itself. We acquire, systematically fill, legally clear, and develop vast tracts of land into master-planned communities. Every single plot we hand over is guaranteed 100% free of legal disputes, ready for immediate deed registration and your visionary development.",
-
+        'The company says customers can verify land ownership and deed documents for its projects. It also describes a contractual commitment to handover timelines and compensation where applicable. Buyers should review the documents, agreement, and specific project conditions with the company before making a decision.',
       pillars: {
-        historyTitle: "20 Years History",
+        historyTitle: 'More Than 20 Years',
         historyDesc:
-          "A zero-failure track record over two decades of operation.",
-
-        legalTitle: "100% Legal Guarantee",
+          'Experience across housing, land development, land filling, and land trading.',
+        legalTitle: 'Document Verification',
         legalDesc:
-          "Completely dispute-free deed documentation on every single plot.",
-
-        investmentTitle: "Prime Investment",
+          'The company invites customers to review land ownership and deed documents before purchase.',
+        investmentTitle: 'Planned Development',
         investmentDesc:
-          "Strategic locations ensuring massive ROI for our buyers.",
+          'Land preparation and community planning, with amenities depending on each project’s approved layout.',
       },
     },
 
     projectsPage: {
-      badge: "Our Portfolio",
-      title: "Master Developments",
+      badge: 'Featured Development',
+      title: 'Abakash Lake View Society',
       description:
-        "Explore our strategically located, 100% dispute-free land developments curated for visionary investors.",
-
-      multipleKathaSizes: "Multiple Katha Sizes",
-      location: "Keraniganj, Dhaka",
-      readyForRegistration: "Ready for Registration",
-      inquireNow: "Inquire Now",
-
+        'Explore the currently featured land-development project from 3S Land Developers. Contact the team for confirmed location details, plot options, current availability, and pricing.',
+      multipleKathaSizes: 'Ask about plot sizes',
+      location: 'Contact the sales team for the site location',
+      readyForRegistration: 'Confirm status with the sales team',
+      inquireNow: 'Request Project Details',
       types: {
-        residential: "Premium Residential",
-        commercial: "Commercial Zone",
-        mixedUse: "Mixed Use",
+        residential: 'Land Development',
+        commercial: 'Commercial Plot Inquiry',
+        mixedUse: 'Development Project',
       },
-
       statuses: {
-        sellingFast: "Selling Fast",
-        available: "Available",
-        underDevelopment: "Under Development",
+        sellingFast: 'Featured Project',
+        available: 'Ask for Availability',
+        underDevelopment: 'Confirm Current Status',
       },
     },
 
     galleryPage: {
-      badge: "Visual Evidence",
-      title: "Project Archives",
+      badge: 'Project Photography',
+      title: 'Abakash Lake View Society',
       description:
-        "Direct photographic progress across our active land filling, infrastructure preparation, and master plot developments.",
-
+        'Browse photographs of the land, site preparation, equipment, and internal access areas. Captions describe visible site conditions rather than unconfirmed facilities.',
       categories: {
-        all: "All",
-        landFilling: "Land Filling",
-        infrastructure: "Site Infrastructure",
-        layouts: "Master Layouts",
+        all: 'All Photos',
+        landFilling: 'Land Preparation',
+        infrastructure: 'Roads & Site Work',
+        layouts: 'Site Views',
       },
-
       items: {
-        filling: "Abakash Lake View Filling",
-        boundary: "Main Boundary Marking",
-        equipment: "Heavy Equipment Operations",
-        road: "Main Access Road Construction",
-        aerial: "Master Development Aerial",
-        clearing: "Block A Sector Clearing",
+        filling: 'Earthmoving and land preparation',
+        boundary: 'Prepared land and brick markers',
+        equipment: 'Heavy machinery on site',
+        road: 'Internal road development',
+        aerial: 'Open development area',
+        clearing: 'Tree-lined access area',
       },
-
-      imageAlt: "Project documentation",
-      enlargedAlt: "Enlarged project view",
+      imageAlt: 'Photograph of the project site',
+      enlargedAlt: 'Enlarged project site photograph',
     },
 
     contactPage: {
-      badge: "Private Client Advisory",
-      title: "Connect With Us",
+      badge: 'Contact 3S Land Developers',
+      title: 'Talk to the Sales Team',
       description:
-        "Verify deeds, schedule a private site tour, or speak with our executive team regarding our premium plot availability.",
-
-      directLine: "Direct Line & WhatsApp",
-      projectLocation: "Project Location",
-      locationLine1: "Atibazar, Keraniganj Model",
-      locationLine2: "Dhaka-1312, Bangladesh",
-      whatsappBtn: "Message on WhatsApp",
-
+        'Ask about Abakash Lake View Society, plot options, payment terms, project documents, or arranging a site visit.',
+      directLine: 'Phone & WhatsApp',
+      projectLocation: 'Office Address',
+      locationLine1: 'Ati Bazar, Keraniganj Model',
+      locationLine2: 'Dhaka-1312, Bangladesh',
+      whatsappBtn: 'Message on WhatsApp',
       whatsappMessage:
-        "Hello, I am interested in learning more about 3S Land Developers plots.",
+        'Hello 3S Land Developers, I would like to learn more about Abakash Lake View Society.',
     },
 
     modal: {
-      title: "Request Portfolio",
-      inquiringRegarding: "Inquiring regarding:",
-      generalPlotInfo: "General Plot Info",
-
-      fullName: "Full Name",
-      namePlaceholder: "e.g. Tanvir Ahmed",
-
-      phone: "Phone / WhatsApp",
-      phonePlaceholder: "+880 17XXXXXXX",
-
-      whatsappGreeting:
-        "Hello 3S Land Developers, my name is",
-      whatsappInterest:
-        "I am interested in details regarding",
+      title: 'Request Project Details',
+      inquiringRegarding: 'Your inquiry:',
+      generalPlotInfo: 'Abakash Lake View Society',
+      fullName: 'Full Name',
+      namePlaceholder: 'Enter your name',
+      phone: 'Phone / WhatsApp',
+      phonePlaceholder: '+880 1XXXXXXXXX',
+      whatsappGreeting: 'Hello 3S Land Developers, my name is',
+      whatsappInterest: 'I would like more information about',
     },
   },
 
   bn: {
     nav: {
-      projects: "প্রকল্পসমূহ",
-      about: "আমাদের সম্পর্কে",
-      gallery: "গ্যালারি",
-      inquire: "যোগাযোগ করুন",
+      projects: 'প্রকল্প',
+      about: 'আমাদের সম্পর্কে',
+      gallery: 'গ্যালারি',
+      inquire: 'যোগাযোগ',
     },
 
     search: {
-      devLabel: "প্রকল্প",
-      allDev: "সকল প্রকল্প",
-      sizeLabel: "প্লটের আয়তন",
-      anySize: "যেকোনো আয়তন (কাঠা)",
-      zoneLabel: "জোনিং ধরন",
-      allZones: "সকল ধরন",
-      residential: "আবাসিক",
-      commercial: "বাণিজ্যিক",
-      button: "প্লট খুঁজুন",
+      devLabel: 'প্রকল্প',
+      allDev: 'অবকাশ লেক ভিউ সোসাইটি',
+      sizeLabel: 'প্লটের আয়তন',
+      anySize: 'যেকোনো আয়তন (কাঠা)',
+      zoneLabel: 'প্লটের ধরন',
+      allZones: 'যেকোনো ধরন',
+      residential: 'আবাসিক',
+      commercial: 'বাণিজ্যিক',
+      button: 'এই বিকল্প সম্পর্কে জানুন',
     },
 
     hero: {
-      badge: "প্রিমিয়াম ল্যান্ড ডেভেলপমেন্ট",
-      title1: "আপনার ভবিষ্যৎ গড়ুন",
-      title2: "নিরাপদ জমিতে",
+      badge: 'অবকাশ লেক ভিউ সোসাইটি',
+      title1: 'আপনার ভবিষ্যৎ গড়ুন',
+      title2: 'নিরাপদ জমিতে',
       subtitle:
-        "ঢাকার সম্প্রসারণ অঞ্চলে ১০০% নিষ্কণ্টক, আবাসিক ও বাণিজ্যিক প্লট নিয়ে আপনার পরিবারের ভবিষ্যৎ সুরক্ষিত করুন।",
-      ctaPrimary: "পোর্টফোলিও দেখুন",
-      ctaSecondary: "গ্যালারি দেখুন",
+        '৩এস ল্যান্ড ডেভেলপারসের অবকাশ লেক ভিউ সোসাইটি সম্পর্কে জানুন। উন্নয়ন কার্যক্রম, প্লটের বিকল্প ও সাইট পরিদর্শনের ব্যবস্থা সম্পর্কে বিস্তারিত জানুন।',
+      ctaPrimary: 'প্রকল্পের বিস্তারিত জানুন',
+      ctaSecondary: 'প্রকল্পের ছবি দেখুন',
     },
 
     metrics: {
-      years: "বছরের বিশ্বস্ততা",
-      legal: "আইনগত বৈধতা",
-      acres: "একর উন্নত জমি",
-      plots: "হস্তান্তরিত প্লট",
+      years: 'বছরের অভিজ্ঞতা',
+      legal: 'আইনগত যাচাই',
+      acres: 'একর উন্নয়নকৃত জমি',
+      plots: 'হস্তান্তরিত প্লট',
     },
 
     about: {
-      badge: "আমাদের ঐতিহ্য",
-      title: "দুই দশকের আস্থার প্রতীক",
+      badge: 'আমাদের অভিজ্ঞতা',
+      title: 'ভূমি উন্নয়নে দুই দশকের অভিজ্ঞতা',
       p1:
-        "থ্রি এস ল্যান্ড ডেভেলপারস-এ, আমরা শুধু জমি বিক্রি করি না; আমরা নিশ্চিত করি মানসিক শান্তি। ২০ বছরেরও বেশি সময় ধরে আমরা প্রিমিয়াম প্লট তৈরি ও হস্তান্তরে কাজ করছি।",
+        '৩এস ল্যান্ড ডেভেলপারস ২০ বছরেরও বেশি সময় ধরে আবাসন, জমি উন্নয়ন, জমি ভরাট ও জমি ট্রেডিং খাতে কাজ করছে।',
       p2:
-        "আমাদের প্রতিটি প্লট ১০০% নিষ্কণ্টক তা নিশ্চিত করতে কঠোর আইনি যাচাইয়ের মধ্য দিয়ে যায়, যা আমাদের ক্লায়েন্টদের বিনিয়োগের পূর্ণ নিরাপত্তা দেয়।",
+        'কোম্পানির তথ্য অনুযায়ী, গ্রাহকরা জমির মালিকানা ও দলিলপত্র যাচাই করতে পারেন। ক্রয়ের আগে সংশ্লিষ্ট নথি ও চুক্তির শর্ত পর্যালোচনা করা উচিত।',
       p3:
-        "জমি ভরাট থেকে শুরু করে রাস্তা নির্মাণ পর্যন্ত, আমাদের অবকাঠামোগত উন্নয়ন আধুনিক পরিকল্পিত নগরীর মানদণ্ড নির্ধারণ করে।",
+        'প্রতিটি প্রকল্পের নকশা অনুযায়ী জমি প্রস্তুত, রাস্তা উন্নয়ন এবং কমিউনিটি পরিকল্পনার ওপর গুরুত্ব দেওয়া হয়।',
     },
 
     masterplan: {
-      badge: "অবকাশ লেক ভিউ",
-      title: "মাস্টার লেআউট",
+      badge: 'অবকাশ লেক ভিউ সোসাইটি',
+      title: 'প্রকল্পের নকশা',
       subtitle:
-        "আমাদের ফ্ল্যাগশিপ প্রজেক্টটি ঘুরে দেখুন, যেখানে রয়েছে প্রশস্ত রাস্তা এবং নির্ধারিত কমিউনিটি জোন।",
-      cta: "পিডিএফ লেআউট ডাউনলোড করুন",
+        'ক্লায়েন্টের কাছ থেকে অফিসিয়াল নকশা পাওয়ার পর প্রকল্পের লেআউট এখানে যুক্ত করা হবে।',
+      cta: 'প্রকল্পের নকশা দেখুন',
     },
 
     plots: {
-      badge: "ইনভেন্টরি",
-      title: "উপলব্ধ প্লটের আকার",
+      badge: 'প্লট সম্পর্কে জানুন',
+      title: 'প্লটের বিকল্প দেখুন',
       subtitle:
-        "ছোট আবাসিক প্লট থেকে শুরু করে বড় বাণিজ্যিক জোন পর্যন্ত, আপনার স্বপ্নের সাথে মানানসই আয়তন বেছে নিন।",
+        'অবকাশ লেক ভিউ সোসাইটির প্লটের আয়তন, বর্তমান প্রাপ্যতা, রাস্তার সংযোগ ও মূল্য সম্পর্কে বিক্রয় দলের কাছে জানুন।',
     },
 
     calculator: {
-      badge: "বিনিয়োগ পরিকল্পনা",
-      title: "পেমেন্ট ক্যালকুলেটর",
+      badge: 'বিনিয়োগ পরিকল্পনা',
+      title: 'প্লটের মূল্য ও ডাউন পেমেন্ট হিসাব',
       subtitle:
-        "আপনার বিনিয়োগের কাঠামো অনুমান করতে প্লটের আকার এবং কিস্তির মেয়াদ কনফিগার করুন।",
-
-      selectSize: "প্লটের আকার নির্বাচন করুন",
-      selectTenure: "কিস্তির পরিকল্পনা নির্বাচন করুন",
-      estTotal: "আনুমানিক মোট খরচ",
-      downPayment: "২০% ডাউন পেমেন্ট",
-      monthlyEst: "আনুমানিক মাসিক কিস্তি",
-      inquireBtn: "এই প্ল্যান সম্পর্কে জানুন",
-
-      standardMid: "স্ট্যান্ডার্ড / মাঝামাঝি",
-      roadSide: "রাস্তার পাশের",
-      corner: "কোণার প্লট",
-
-      katha: "কাঠা",
-      month: "মাস",
-      months: "মাস",
-      monthShort: "মাস",
+        'প্রদত্ত আনুমানিক মূল্যসীমার মধ্যে একটি মূল্য বেছে নিন। নির্দিষ্ট প্লটের চূড়ান্ত মূল্য ও পেমেন্টের শর্ত বিক্রয় দলের কাছ থেকে নিশ্চিত করুন।',
+      selectSize: 'আনুমানিক প্লটের মূল্য',
+      selectTenure: 'রেজিস্ট্রেশনের শর্ত',
+      estTotal: 'আনুমানিক প্লটের মূল্য',
+      downPayment: '৩৩% ডাউন পেমেন্ট',
+      monthlyEst: 'অবশিষ্ট মূল্য (৬৭%)',
+      inquireBtn: 'এই হিসাব সম্পর্কে জানুন',
+      standardMid: 'স্ট্যান্ডার্ড / মাঝামাঝি',
+      roadSide: 'রাস্তার পাশের',
+      corner: 'কোণার প্লট',
+      katha: 'কাঠা',
+      month: 'মাস',
+      months: 'মাস',
+      monthShort: 'মাস',
     },
 
     gallery: {
-      badge: "দৃশ্যমান আপডেট",
-      title: "প্রকল্পের অগ্রগতি",
-      cta: "সম্পূর্ণ গ্যালারি দেখুন",
+      badge: 'প্রকল্পের ছবি',
+      title: 'প্রকল্পের অগ্রগতি',
+      cta: 'সব ছবি দেখুন',
     },
 
     cta: {
-      badge: "পদক্ষেপ নিন",
-      title: "আজই আপনার প্লট বুক করুন",
+      badge: 'পরবর্তী পদক্ষেপ',
+      title: 'অবকাশ লেক ভিউ সোসাইটি সম্পর্কে জানুন',
       subtitle:
-        "বর্তমান প্রাপ্যতা, আইনি কাগজপত্র এবং সাইট পরিদর্শনের জন্য হোয়াটসঅ্যাপে আমাদের সেলস ডিরেক্টরদের সাথে যোগাযোগ করুন।",
-      btn: "হোয়াটসঅ্যাপে যোগাযোগ করুন",
+        'প্লটের প্রাপ্যতা, মূল্য, প্রকল্পের নকশা এবং সাইট পরিদর্শন সম্পর্কে জানতে আমাদের দলের সাথে যোগাযোগ করুন।',
+      btn: 'বিক্রয় দলের সাথে যোগাযোগ করুন',
     },
 
     footer: {
       description:
-        "দুই দশকের আস্থার সাথে প্রিমিয়াম জমি ভরাট, ট্রেডিং এবং উন্নয়ন। ১০০% আইনি ও নিষ্কণ্টক প্লট সরবরাহ করা হচ্ছে।",
-      explore: "অন্বেষণ করুন",
-      contact: "যোগাযোগ",
-      address:
-        "আটিবাজার, কেরানীগঞ্জ মডেল, ঢাকা-১৩১২, বাংলাদেশ।",
-      copyright:
-        "থ্রি এস ল্যান্ড ডেভেলপারস। সর্বস্বত্ব সংরক্ষিত।",
-      digitalPartner: "ডিজিটাল পার্টনার",
+        '২০ বছরেরও বেশি সময় ধরে আবাসন, জমি উন্নয়ন, জমি ভরাট ও জমি ট্রেডিং খাতে অভিজ্ঞতা।',
+      explore: 'দেখুন',
+      contact: 'যোগাযোগ',
+      address: 'আটিবাজার, কেরানীগঞ্জ মডেল, ঢাকা-১৩১২, বাংলাদেশ।',
+      copyright: 'থ্রি এস ল্যান্ড ডেভেলপারস। সর্বস্বত্ব সংরক্ষিত।',
+      digitalPartner: 'ডিজিটাল পার্টনার',
     },
 
     aboutPage: {
-      badge: "আমাদের ঐতিহ্য",
-      title1: "দুই দশকের",
-      title2: "আস্থা।",
-
+      badge: '৩এস ল্যান্ড ডেভেলপারস সম্পর্কে',
+      title1: 'অভিজ্ঞতা গড়ে উঠেছে',
+      title2: 'জমিকে ঘিরে।',
       intro:
-        "থ্রি এস ল্যান্ড ডেভেলপারস একটি প্রিমিয়াম রিয়েল এস্টেট প্রতিষ্ঠান, যা জমি উন্নয়ন, ভরাট ও প্লট ট্রেডিং খাতে ২০ বছরের সুনামের সাথে কাজ করে আসছে।",
-
+        '৩এস ল্যান্ড ডেভেলপারস একটি গ্রাহককেন্দ্রিক প্রতিষ্ঠান, যা ২০ বছরেরও বেশি সময় ধরে আবাসন, জমি উন্নয়ন, জমি ভরাট ও জমি ট্রেডিং খাতে কাজ করছে।',
       description:
-        "আমরা সম্পত্তির মূল ভিত্তি—জমি—নিয়েই কাজ করি। আমরা জমি অধিগ্রহণ, পরিকল্পিতভাবে ভরাট, আইনগত যাচাই এবং মাস্টার-প্ল্যানভিত্তিক কমিউনিটি উন্নয়নের মাধ্যমে ব্যাপক জমিকে উন্নত প্লটে রূপান্তর করি। আমাদের প্রতিটি হস্তান্তরিত প্লট ১০০% আইনগত বিরোধমুক্ত এবং দলিল রেজিস্ট্রেশনের জন্য প্রস্তুত।",
-
+        'কোম্পানির বক্তব্য অনুযায়ী, গ্রাহকরা জমির মালিকানা ও দলিলপত্র যাচাই করতে পারেন। নির্ধারিত সময়ে হস্তান্তর এবং প্রযোজ্য ক্ষেত্রে ক্ষতিপূরণ সম্পর্কে কোম্পানি চুক্তিভিত্তিক অঙ্গীকারের কথাও জানায়। সিদ্ধান্ত নেওয়ার আগে প্রাসঙ্গিক নথি, চুক্তি ও নির্দিষ্ট প্রকল্পের শর্ত কোম্পানির সঙ্গে যাচাই করুন।',
       pillars: {
-        historyTitle: "২০ বছরের ইতিহাস",
+        historyTitle: '২০ বছরেরও বেশি অভিজ্ঞতা',
         historyDesc:
-          "দুই দশকের কার্যক্রমে ব্যর্থতাহীন ও বিশ্বস্ত সেবার রেকর্ড।",
-
-        legalTitle: "১০০% আইনগত নিশ্চয়তা",
+          'আবাসন, জমি উন্নয়ন, জমি ভরাট ও জমি ট্রেডিং খাতে অভিজ্ঞতা।',
+        legalTitle: 'দলিল যাচাই',
         legalDesc:
-          "প্রতিটি প্লটের জন্য সম্পূর্ণ বিরোধমুক্ত দলিলপত্র নিশ্চিত করা হয়।",
-
-        investmentTitle: "সেরা বিনিয়োগ",
+          'ক্রয়ের আগে গ্রাহকদের জমির মালিকানা ও দলিলপত্র পর্যালোচনার সুযোগ দেওয়ার কথা কোম্পানি জানায়।',
+        investmentTitle: 'পরিকল্পিত উন্নয়ন',
         investmentDesc:
-          "কৌশলগত অবস্থানের কারণে ক্রেতাদের জন্য সম্ভাবনাময় বিনিয়োগ সুযোগ।",
+          'প্রকল্পের অনুমোদিত নকশা অনুযায়ী জমি প্রস্তুত, রাস্তা ও কমিউনিটি পরিকল্পনার ওপর গুরুত্ব।',
       },
     },
 
     projectsPage: {
-      badge: "আমাদের পোর্টফোলিও",
-      title: "মাস্টার ডেভেলপমেন্টসমূহ",
+      badge: 'বিশেষভাবে প্রদর্শিত প্রকল্প',
+      title: 'অবকাশ লেক ভিউ সোসাইটি',
       description:
-        "দূরদর্শী বিনিয়োগকারীদের জন্য নির্বাচিত, কৌশলগত অবস্থানে অবস্থিত ১০০% বিরোধমুক্ত ভূমি উন্নয়ন প্রকল্পগুলো দেখুন।",
-
-      multipleKathaSizes: "বিভিন্ন কাঠা আকার",
-      location: "কেরানীগঞ্জ, ঢাকা",
-      readyForRegistration: "রেজিস্ট্রেশনের জন্য প্রস্তুত",
-      inquireNow: "এখনই যোগাযোগ করুন",
-
+        '৩এস ল্যান্ড ডেভেলপারসের বর্তমানে প্রদর্শিত ভূমি উন্নয়ন প্রকল্প সম্পর্কে জানুন। সুনির্দিষ্ট অবস্থান, প্লটের বিকল্প, বর্তমান প্রাপ্যতা ও মূল্য বিক্রয় দলের কাছ থেকে নিশ্চিত করুন।',
+      multipleKathaSizes: 'প্লটের আয়তন সম্পর্কে জানুন',
+      location: 'সাইটের অবস্থানের জন্য বিক্রয় দলের সাথে যোগাযোগ করুন',
+      readyForRegistration: 'বর্তমান অবস্থা বিক্রয় দলের কাছ থেকে নিশ্চিত করুন',
+      inquireNow: 'প্রকল্পের বিস্তারিত জানুন',
       types: {
-        residential: "প্রিমিয়াম আবাসিক",
-        commercial: "বাণিজ্যিক জোন",
-        mixedUse: "মিশ্র ব্যবহার",
+        residential: 'ভূমি উন্নয়ন',
+        commercial: 'বাণিজ্যিক প্লট সম্পর্কে জানুন',
+        mixedUse: 'উন্নয়ন প্রকল্প',
       },
-
       statuses: {
-        sellingFast: "দ্রুত বিক্রি হচ্ছে",
-        available: "উপলভ্য",
-        underDevelopment: "উন্নয়নাধীন",
+        sellingFast: 'প্রদর্শিত প্রকল্প',
+        available: 'প্রাপ্যতা সম্পর্কে জানুন',
+        underDevelopment: 'বর্তমান অবস্থা নিশ্চিত করুন',
       },
     },
 
     galleryPage: {
-      badge: "দৃশ্যমান প্রমাণ",
-      title: "প্রকল্প আর্কাইভ",
+      badge: 'প্রকল্পের ছবি',
+      title: 'অবকাশ লেক ভিউ সোসাইটি',
       description:
-        "আমাদের চলমান জমি ভরাট, অবকাঠামো প্রস্তুতি এবং মাস্টার প্লট উন্নয়নের সরাসরি ফটোগ্রাফিক অগ্রগতি দেখুন।",
-
+        'জমি, সাইট প্রস্তুতি, যন্ত্রপাতি ও অভ্যন্তরীণ চলাচলের এলাকার ছবি দেখুন। ক্যাপশনে ছবিতে দৃশ্যমান অবস্থা বর্ণনা করা হয়েছে, অনিশ্চিত সুবিধার দাবি করা হয়নি।',
       categories: {
-        all: "সব",
-        landFilling: "জমি ভরাট",
-        infrastructure: "সাইট অবকাঠামো",
-        layouts: "মাস্টার লেআউট",
+        all: 'সব ছবি',
+        landFilling: 'জমি প্রস্তুতি',
+        infrastructure: 'রাস্তা ও সাইটের কাজ',
+        layouts: 'সাইটের দৃশ্য',
       },
-
       items: {
-        filling: "অবকাশ লেক ভিউ জমি ভরাট",
-        boundary: "প্রধান সীমানা চিহ্নিতকরণ",
-        equipment: "ভারী যন্ত্রপাতির কার্যক্রম",
-        road: "প্রধান প্রবেশপথ নির্মাণ",
-        aerial: "মাস্টার ডেভেলপমেন্টের আকাশচিত্র",
-        clearing: "ব্লক এ সেক্টর পরিষ্কারকরণ",
+        filling: 'মাটি সরানো ও জমি প্রস্তুতি',
+        boundary: 'প্রস্তুত জমি ও ইটের চিহ্ন',
+        equipment: 'সাইটে ভারী যন্ত্রপাতি',
+        road: 'অভ্যন্তরীণ রাস্তার উন্নয়ন',
+        aerial: 'উন্মুক্ত উন্নয়ন এলাকা',
+        clearing: 'গাছঘেরা প্রবেশপথ',
       },
-
-      imageAlt: "প্রকল্পের ডকুমেন্টেশন",
-      enlargedAlt: "বর্ধিত প্রকল্পের দৃশ্য",
+      imageAlt: 'প্রকল্প এলাকার ছবি',
+      enlargedAlt: 'প্রকল্প এলাকার বড় ছবি',
     },
 
     contactPage: {
-      badge: "ব্যক্তিগত ক্লায়েন্ট পরামর্শ",
-      title: "আমাদের সাথে যোগাযোগ করুন",
+      badge: '৩এস ল্যান্ড ডেভেলপারসের সাথে যোগাযোগ',
+      title: 'বিক্রয় দলের সাথে কথা বলুন',
       description:
-        "দলিল যাচাই করুন, ব্যক্তিগত সাইট ভিজিটের সময় নির্ধারণ করুন, অথবা আমাদের প্রিমিয়াম প্লটের বর্তমান প্রাপ্যতা সম্পর্কে নির্বাহী দলের সাথে কথা বলুন।",
-
-      directLine: "সরাসরি ফোন ও হোয়াটসঅ্যাপ",
-      projectLocation: "প্রকল্পের অবস্থান",
-      locationLine1: "আটিবাজার, কেরানীগঞ্জ মডেল",
-      locationLine2: "ঢাকা-১৩১২, বাংলাদেশ",
-      whatsappBtn: "হোয়াটসঅ্যাপে মেসেজ করুন",
-
+        'অবকাশ লেক ভিউ সোসাইটি, প্লটের বিকল্প, পেমেন্টের শর্ত, প্রকল্পের নথি অথবা সাইট পরিদর্শন সম্পর্কে জানুন।',
+      directLine: 'ফোন ও হোয়াটসঅ্যাপ',
+      projectLocation: 'অফিসের ঠিকানা',
+      locationLine1: 'আটিবাজার, কেরানীগঞ্জ মডেল',
+      locationLine2: 'ঢাকা-১৩১২, বাংলাদেশ',
+      whatsappBtn: 'হোয়াটসঅ্যাপে মেসেজ করুন',
       whatsappMessage:
-        "হ্যালো ৩এস ল্যান্ড ডেভেলপারস, আমি আপনাদের প্লট সম্পর্কে বিস্তারিত জানতে আগ্রহী।",
+        'হ্যালো ৩এস ল্যান্ড ডেভেলপারস, আমি অবকাশ লেক ভিউ সোসাইটি সম্পর্কে বিস্তারিত জানতে আগ্রহী।',
     },
 
     modal: {
-      title: "পোর্টফোলিও অনুরোধ করুন",
-      inquiringRegarding: "যে বিষয়ে জানতে চান:",
-      generalPlotInfo: "সাধারণ প্লটের তথ্য",
-
-      fullName: "পূর্ণ নাম",
-      namePlaceholder: "যেমন: তানভীর আহমেদ",
-
-      phone: "ফোন / হোয়াটসঅ্যাপ",
-      phonePlaceholder: "+880 17XXXXXXX",
-
-      whatsappGreeting:
-        "হ্যালো ৩এস ল্যান্ড ডেভেলপারস, আমার নাম",
-      whatsappInterest:
-        "আমি বিস্তারিত জানতে আগ্রহী",
+      title: 'প্রকল্পের বিস্তারিত জানুন',
+      inquiringRegarding: 'আপনার অনুসন্ধান:',
+      generalPlotInfo: 'অবকাশ লেক ভিউ সোসাইটি',
+      fullName: 'পূর্ণ নাম',
+      namePlaceholder: 'আপনার নাম লিখুন',
+      phone: 'ফোন / হোয়াটসঅ্যাপ',
+      phonePlaceholder: '+880 1XXXXXXXXX',
+      whatsappGreeting: 'হ্যালো ৩এস ল্যান্ড ডেভেলপারস, আমার নাম',
+      whatsappInterest: 'আমি বিস্তারিত জানতে আগ্রহী',
     },
   },
 };

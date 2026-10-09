@@ -4,9 +4,8 @@ import {
   createContext,
   useContext,
   useEffect,
-  useRef,
   useState,
-  ReactNode,
+  type ReactNode,
 } from 'react';
 
 type Language = 'en' | 'bn';
@@ -22,33 +21,36 @@ const LanguageContext = createContext<LanguageContextType | undefined>(
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<Language>('en');
-  const initializedRef = useRef(false);
+  const [hasLoadedPreference, setHasLoadedPreference] = useState(false);
 
-  // Load saved language after hydration
   useEffect(() => {
-    const savedLanguage = window.localStorage.getItem('3s-language');
+    try {
+      const savedLanguage = window.localStorage.getItem('3s-language');
 
-    if (savedLanguage === 'bn' || savedLanguage === 'en') {
-      setLanguage(savedLanguage);
+      if (savedLanguage === 'en' || savedLanguage === 'bn') {
+        setLanguage(savedLanguage);
+      }
+    } catch {
+      // The site still works if browser storage is unavailable.
+    } finally {
+      setHasLoadedPreference(true);
     }
-
-    document.documentElement.lang =
-      savedLanguage === 'bn' ? 'bn' : 'en';
-
-    initializedRef.current = true;
   }, []);
 
-  // Save language and update document language
   useEffect(() => {
-    if (!initializedRef.current) return;
-
-    window.localStorage.setItem('3s-language', language);
+    if (!hasLoadedPreference) return;
 
     document.documentElement.lang = language;
-  }, [language]);
+
+    try {
+      window.localStorage.setItem('3s-language', language);
+    } catch {
+      // Do not block language switching if storage is unavailable.
+    }
+  }, [language, hasLoadedPreference]);
 
   const toggleLanguage = () => {
-    setLanguage((prev) => (prev === 'en' ? 'bn' : 'en'));
+    setLanguage((current) => (current === 'en' ? 'bn' : 'en'));
   };
 
   return (
@@ -61,10 +63,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 export function useLanguage() {
   const context = useContext(LanguageContext);
 
-  if (context === undefined) {
-    throw new Error(
-      'useLanguage must be used within a LanguageProvider'
-    );
+  if (!context) {
+    throw new Error('useLanguage must be used within a LanguageProvider');
   }
 
   return context;
