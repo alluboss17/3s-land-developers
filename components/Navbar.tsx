@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
@@ -17,9 +18,13 @@ const navigation = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+
   const { language, toggleLanguage } = useLanguage();
+
   const pathname = usePathname();
+
   const reduceMotion = useReducedMotion() ?? false;
+
   const t = translations[language].nav;
 
   useEffect(() => {
@@ -30,38 +35,52 @@ export default function Navbar() {
     if (!isOpen) return;
 
     const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setIsOpen(false);
+      if (event.key === 'Escape') {
+        setIsOpen(false);
+      }
     };
 
     window.addEventListener('keydown', handleEscape);
-    return () => window.removeEventListener('keydown', handleEscape);
+
+    return () => {
+      window.removeEventListener('keydown', handleEscape);
+    };
   }, [isOpen]);
 
   const linkClass = (href: string) => {
     const isActive = pathname === href;
 
     return `relative inline-flex min-h-11 items-center text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 ${
-      isActive ? 'text-white' : 'text-slate-300 hover:text-white'
+      isActive
+        ? 'text-white'
+        : 'text-slate-300 hover:text-white'
     }`;
   };
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/95 text-white shadow-sm shadow-slate-950/10 backdrop-blur-xl">
       <div className="mx-auto flex h-[4.5rem] max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 lg:h-20 lg:px-8">
+        {/* =========================================
+            BRAND LOGO
+        ========================================== */}
         <Link
           href="/"
           aria-label="3S Land Developers home"
-          className="group flex min-w-0 items-center gap-2 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
+          className="group flex min-w-0 items-center rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
         >
-          <span className="flex h-9 w-9 shrink-0 items-center justify-center border border-emerald-400/40 bg-emerald-400/10 text-sm font-black tracking-tight text-emerald-300 transition-colors group-hover:bg-emerald-400/20">
-            3S
-          </span>
-
-          <span className="min-w-0 text-[13px] font-extrabold uppercase leading-tight tracking-tight sm:text-base">
-            3S LAND <span className="text-amber-400">DEVELOPERS</span>
-          </span>
+          <Image
+            src="/3s-logo-horizontal.png"
+            alt="3S Land Developers"
+            width={1200}
+            height={410}
+            priority
+            className="h-9 w-auto object-contain transition-opacity duration-300 group-hover:opacity-90 sm:h-10 lg:h-11"
+          />
         </Link>
 
+        {/* =========================================
+            DESKTOP NAVIGATION
+        ========================================== */}
         <div className="flex shrink-0 items-center gap-2 sm:gap-3">
           <nav
             aria-label="Main navigation"
@@ -71,7 +90,11 @@ export default function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                aria-current={pathname === item.href ? 'page' : undefined}
+                aria-current={
+                  pathname === item.href
+                    ? 'page'
+                    : undefined
+                }
                 className={linkClass(item.href)}
               >
                 {t[item.key]}
@@ -83,7 +106,9 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* One language switcher for desktop and mobile */}
+          {/* =========================================
+              LANGUAGE SWITCHER
+          ========================================== */}
           <button
             type="button"
             onClick={toggleLanguage}
@@ -97,11 +122,18 @@ export default function Navbar() {
             {language === 'en' ? 'বাংলা' : 'EN'}
           </button>
 
+          {/* =========================================
+              MOBILE MENU BUTTON
+          ========================================== */}
           <button
             type="button"
-            onClick={() => setIsOpen((open) => !open)}
+            onClick={() =>
+              setIsOpen((open) => !open)
+            }
             aria-label={
-              isOpen ? 'Close navigation menu' : 'Open navigation menu'
+              isOpen
+                ? 'Close navigation menu'
+                : 'Open navigation menu'
             }
             aria-expanded={isOpen}
             aria-controls="mobile-navigation"
@@ -116,16 +148,30 @@ export default function Navbar() {
         </div>
       </div>
 
+      {/* =========================================
+          MOBILE NAVIGATION
+      ========================================== */}
       <AnimatePresence initial={false}>
         {isOpen && (
           <motion.nav
             id="mobile-navigation"
             aria-label="Mobile navigation"
             initial={
-              reduceMotion ? false : { opacity: 0, height: 0 }
+              reduceMotion
+                ? false
+                : {
+                    opacity: 0,
+                    height: 0,
+                  }
             }
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
+            animate={{
+              opacity: 1,
+              height: 'auto',
+            }}
+            exit={{
+              opacity: 0,
+              height: 0,
+            }}
             transition={{
               duration: reduceMotion ? 0 : 0.22,
               ease: 'easeOut',
@@ -133,35 +179,64 @@ export default function Navbar() {
             className="overflow-hidden border-t border-white/10 bg-slate-950 lg:hidden"
           >
             <div className="mx-auto max-w-7xl px-4 pb-5 pt-3 sm:px-6">
-              {navigation.map((item, index) => {
-                const active = pathname === item.href;
+              {navigation.map(
+                (item, index) => {
+                  const active =
+                    pathname === item.href;
 
-                return (
-                  <motion.div
-                    key={item.href}
-                    initial={
-                      reduceMotion ? false : { opacity: 0, x: -8 }
-                    }
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{
-                      duration: reduceMotion ? 0 : 0.18,
-                      delay: reduceMotion ? 0 : index * 0.035,
-                    }}
-                  >
-                    <Link
-                      href={item.href}
-                      onClick={() => setIsOpen(false)}
-                      aria-current={active ? 'page' : undefined}
-                      className={`flex min-h-12 items-center justify-between border-b border-white/[0.07] px-2 text-sm transition-colors hover:text-emerald-300 ${
-                        active ? 'text-emerald-300' : 'text-slate-200'
-                      }`}
+                  return (
+                    <motion.div
+                      key={item.href}
+                      initial={
+                        reduceMotion
+                          ? false
+                          : {
+                              opacity: 0,
+                              x: -8,
+                            }
+                      }
+                      animate={{
+                        opacity: 1,
+                        x: 0,
+                      }}
+                      transition={{
+                        duration:
+                          reduceMotion
+                            ? 0
+                            : 0.18,
+                        delay:
+                          reduceMotion
+                            ? 0
+                            : index *
+                              0.035,
+                      }}
                     >
-                      {t[item.key]}
-                      <ArrowUpRight className="h-4 w-4 text-slate-500" />
-                    </Link>
-                  </motion.div>
-                );
-              })}
+                      <Link
+                        href={item.href}
+                        onClick={() =>
+                          setIsOpen(
+                            false
+                          )
+                        }
+                        aria-current={
+                          active
+                            ? 'page'
+                            : undefined
+                        }
+                        className={`flex min-h-12 items-center justify-between border-b border-white/[0.07] px-2 text-sm transition-colors hover:text-emerald-300 ${
+                          active
+                            ? 'text-emerald-300'
+                            : 'text-slate-200'
+                        }`}
+                      >
+                        {t[item.key]}
+
+                        <ArrowUpRight className="h-4 w-4 text-slate-500" />
+                      </Link>
+                    </motion.div>
+                  );
+                }
+              )}
 
               <p className="px-2 pt-4 text-[10px] uppercase tracking-[0.16em] text-slate-500">
                 {language === 'bn'

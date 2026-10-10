@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import {
   ArrowUpRight,
@@ -8,6 +9,7 @@ import {
   Phone,
   MessageCircle,
 } from 'lucide-react';
+
 import { useLanguage } from '@/context/LanguageContext';
 import { translations } from '@/lib/translations';
 
@@ -31,8 +33,10 @@ const phoneNumbers = [
 
 export default function Footer() {
   const { language } = useLanguage();
+
   const t = translations[language].footer;
   const navT = translations[language].nav;
+
   const isBn = language === 'bn';
 
   const address = isBn
@@ -46,15 +50,22 @@ export default function Footer() {
   return (
     <footer className="border-t border-white/10 bg-slate-950 px-5 pb-7 pt-14 text-slate-400 sm:px-6 sm:pt-16">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 pb-12 sm:grid-cols-2 md:grid-cols-3 md:gap-12 md:pb-16">
+        {/* =========================================
+            COMPANY / BRAND
+        ========================================== */}
         <div>
-          <Link href="/" className="inline-flex items-center gap-2 text-white">
-            <span className="flex h-9 w-9 items-center justify-center border border-emerald-400/40 bg-emerald-400/10 text-sm font-black text-emerald-300">
-              3S
-            </span>
-
-            <span className="text-lg font-extrabold uppercase tracking-tight">
-              3S LAND <span className="text-amber-400">DEVELOPERS</span>
-            </span>
+          <Link
+            href="/"
+            aria-label="3S Land Developers home"
+            className="group inline-flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
+          >
+            <Image
+              src="/3s-logo-horizontal.png"
+              alt="3S Land Developers"
+              width={1200}
+              height={410}
+              className="h-12 w-auto object-contain transition-opacity duration-300 group-hover:opacity-90 sm:h-14"
+            />
           </Link>
 
           <p className="mt-5 max-w-sm text-sm font-light leading-7 text-slate-400">
@@ -62,7 +73,10 @@ export default function Footer() {
           </p>
 
           <p className="mt-4 text-xs leading-6 text-slate-500">
-            {isBn ? 'চলমান প্রকল্প:' : 'Featured development:'}{' '}
+            {isBn
+              ? 'চলমান প্রকল্প:'
+              : 'Featured development:'}{' '}
+
             <span className="text-slate-300">
               {isBn
                 ? 'অবকাশ লেক ভিউ সোসাইটি'
@@ -71,6 +85,9 @@ export default function Footer() {
           </p>
         </div>
 
+        {/* =========================================
+            NAVIGATION
+        ========================================== */}
         <div>
           <h2 className="mb-5 text-xs font-bold uppercase tracking-[0.18em] text-white">
             {t.explore}
@@ -78,36 +95,56 @@ export default function Footer() {
 
           <ul className="space-y-3 text-sm">
             <li>
-              <Link href="/projects" className="transition-colors hover:text-emerald-300">
+              <Link
+                href="/projects"
+                className="transition-colors hover:text-emerald-300"
+              >
                 {navT.projects}
               </Link>
             </li>
+
             <li>
-              <Link href="/about" className="transition-colors hover:text-emerald-300">
+              <Link
+                href="/about"
+                className="transition-colors hover:text-emerald-300"
+              >
                 {navT.about}
               </Link>
             </li>
+
             <li>
-              <Link href="/gallery" className="transition-colors hover:text-emerald-300">
+              <Link
+                href="/gallery"
+                className="transition-colors hover:text-emerald-300"
+              >
                 {navT.gallery}
               </Link>
             </li>
+
             <li>
-              <Link href="/contact" className="transition-colors hover:text-emerald-300">
+              <Link
+                href="/contact"
+                className="transition-colors hover:text-emerald-300"
+              >
                 {navT.inquire}
               </Link>
             </li>
           </ul>
         </div>
 
+        {/* =========================================
+            CONTACT
+        ========================================== */}
         <div>
           <h2 className="mb-5 text-xs font-bold uppercase tracking-[0.18em] text-white">
             {t.contact}
           </h2>
 
           <ul className="space-y-4 text-sm">
+            {/* Address */}
             <li className="flex items-start gap-3">
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" />
+
               <a
                 href="https://www.google.com/maps/search/?api=1&query=Ati+Bazar%2C+Keraniganj+Model%2C+Dhaka+1312%2C+Bangladesh"
                 target="_blank"
@@ -118,8 +155,10 @@ export default function Footer() {
               </a>
             </li>
 
+            {/* Phone numbers */}
             <li className="flex items-start gap-3">
               <Phone className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" />
+
               <div className="space-y-2">
                 {phoneNumbers.map((phone) => (
                   <div
@@ -135,7 +174,10 @@ export default function Footer() {
 
                     {phone.whatsapp && (
                       <a
-                        href={`https://wa.me/${phone.raw.replace('+', '')}`}
+                        href={`https://wa.me/${phone.raw.replace(
+                          '+',
+                          ''
+                        )}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`${phone.display} WhatsApp`}
@@ -149,8 +191,10 @@ export default function Footer() {
               </div>
             </li>
 
+            {/* Email */}
             <li className="flex items-center gap-3">
               <Mail className="h-4 w-4 shrink-0 text-emerald-400" />
+
               <a
                 href="mailto:sawkat70@gmail.com"
                 className="break-all transition-colors hover:text-white"
@@ -162,6 +206,9 @@ export default function Footer() {
         </div>
       </div>
 
+      {/* =========================================
+          FOOTER BOTTOM BAR
+      ========================================== */}
       <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-4 border-t border-white/10 pt-6 sm:flex-row sm:items-center">
         <p className="text-xs leading-6 text-slate-500">
           © {new Date().getFullYear()} {t.copyright}
@@ -169,7 +216,10 @@ export default function Footer() {
 
         <p className="flex flex-wrap items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.15em] text-slate-500">
           {t.digitalPartner}
-          <span className="text-slate-700">|</span>
+
+          <span className="text-slate-700">
+            |
+          </span>
 
           <a
             href="https://andigitalstudio.com"
@@ -177,7 +227,9 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1 text-white transition-colors hover:text-emerald-300"
           >
-            AN Digital Studio <ArrowUpRight className="h-3 w-3" />
+            AN Digital Studio
+
+            <ArrowUpRight className="h-3 w-3" />
           </a>
         </p>
       </div>

@@ -158,6 +158,7 @@ export const translations = {
         landFilling: 'Land Preparation',
         infrastructure: 'Roads & Site Work',
         layouts: 'Site Views',
+        clientVisits: 'Client Visits',
       },
       items: {
         filling: 'Earthmoving and land preparation',
@@ -357,6 +358,7 @@ export const translations = {
         landFilling: 'জমি প্রস্তুতি',
         infrastructure: 'রাস্তা ও সাইটের কাজ',
         layouts: 'সাইটের দৃশ্য',
+        clientVisits: 'ক্লায়েন্ট ভিজিট',
       },
       items: {
         filling: 'মাটি সরানো ও জমি প্রস্তুতি',

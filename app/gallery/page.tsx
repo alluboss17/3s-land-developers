@@ -11,7 +11,8 @@ type GalleryCategory =
   | 'all'
   | 'landFilling'
   | 'infrastructure'
-  | 'layouts';
+  | 'layouts'
+  | 'clientVisits';
 
 export default function Gallery() {
   const { language } = useLanguage();
@@ -28,10 +29,14 @@ export default function Gallery() {
     { id: 'landFilling', label: t.categories.landFilling },
     { id: 'infrastructure', label: t.categories.infrastructure },
     { id: 'layouts', label: t.categories.layouts },
+    { id: 'clientVisits', label: t.categories.clientVisits },
   ];
 
   const galleryItems = useMemo(
     () => [
+      // =========================
+      // EXISTING IMAGES
+      // =========================
       {
         id: 1,
         title: t.items.filling,
@@ -75,6 +80,118 @@ export default function Gallery() {
           : 'Wide view of prepared land',
         category: 'landFilling' as const,
         image: '/images/site-2.jpg',
+      },
+
+      // =========================
+      // NEW BANNER / SITE IMAGES
+      // =========================
+      {
+        id: 8,
+        title: isBn
+          ? 'প্রকল্প এলাকার বিস্তৃত দৃশ্য'
+          : 'Project area overview',
+        category: 'layouts' as const,
+        image: '/images/banner-1.jpg',
+      },
+      {
+        id: 9,
+        title: isBn
+          ? 'আবাসন প্রকল্পের সামগ্রিক দৃশ্য'
+          : 'Development overview',
+        category: 'layouts' as const,
+        image: '/images/banner-2.jpg',
+      },
+      {
+        id: 10,
+        title: isBn
+          ? 'প্রকল্পের বর্তমান অগ্রগতির দৃশ্য'
+          : 'Current project progress',
+        category: 'layouts' as const,
+        image: '/images/banner-3.jpg',
+      },
+
+      // =========================
+      // CLIENT / SITE VISIT IMAGES
+      // =========================
+      {
+        id: 11,
+        title: isBn
+          ? 'প্রকল্প এলাকায় ক্লায়েন্ট পরিদর্শন'
+          : 'Client visit at the project site',
+        category: 'clientVisits' as const,
+        image: '/images/client-1.jpg',
+      },
+      {
+        id: 12,
+        title: isBn
+          ? 'ক্লায়েন্টদের প্রকল্প পরিদর্শন'
+          : 'Clients visiting the development',
+        category: 'clientVisits' as const,
+        image: '/images/client-2.jpg',
+      },
+      {
+        id: 13,
+        title: isBn
+          ? 'প্রকল্প এলাকায় ক্লায়েন্ট ভিজিট'
+          : 'Client site visit',
+        category: 'clientVisits' as const,
+        image: '/images/client-3.jpg',
+      },
+
+      // =========================
+      // LAND / FIELD IMAGES
+      // =========================
+      {
+        id: 14,
+        title: isBn
+          ? 'ভরাটকৃত জমির বর্তমান অবস্থা'
+          : 'Current condition of prepared land',
+        category: 'landFilling' as const,
+        image: '/images/field-2.JPG',
+      },
+      {
+        id: 15,
+        title: isBn
+          ? 'প্রকল্পের প্রস্তুত জমি'
+          : 'Prepared project land',
+        category: 'landFilling' as const,
+        image: '/images/field.jpg',
+      },
+      {
+        id: 16,
+        title: isBn
+          ? 'জমি ভরাট কার্যক্রমের অগ্রগতি'
+          : 'Land filling progress',
+        category: 'landFilling' as const,
+        image: '/images/filled.jpg',
+      },
+
+      // =========================
+      // ROAD / INFRASTRUCTURE IMAGES
+      // =========================
+      {
+        id: 17,
+        title: isBn
+          ? 'প্রকল্পের অভ্যন্তরীণ সড়ক'
+          : 'Internal project road',
+        category: 'infrastructure' as const,
+        image: '/images/road-1.jpg',
+      },
+      {
+        id: 18,
+        title: isBn
+          ? 'প্রকল্পের সড়ক উন্নয়ন'
+          : 'Road development progress',
+        category: 'infrastructure' as const,
+        image: '/images/road-2.JPG',
+      },
+      {
+        id: 19,
+        title: isBn
+          ? 'প্রকল্প এলাকায় উন্নত সড়ক ব্যবস্থা'
+          : 'Road infrastructure at the project',
+        category: 'infrastructure' as const,
+        image: '/images/road-3.jpg',
       },
     ],
     [language, t, isBn]
@@ -125,16 +242,30 @@ export default function Gallery() {
     };
 
     window.addEventListener('keydown', handleKeys);
-    return () => window.removeEventListener('keydown', handleKeys);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeys);
+    };
   }, [selectedId, moveLightbox]);
 
   return (
     <main className="min-h-screen bg-slate-950 pb-20 text-white selection:bg-emerald-900 selection:text-white sm:pb-28">
+      {/* =========================
+          HERO
+      ========================== */}
       <section className="border-b border-white/10 px-5 py-16 sm:px-6 sm:py-20 md:py-28">
         <motion.div
-          initial={{ opacity: 0, y: reduceMotion ? 0 : 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: reduceMotion ? 0 : 0.7 }}
+          initial={{
+            opacity: 0,
+            y: reduceMotion ? 0 : 16,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: reduceMotion ? 0 : 0.7,
+          }}
           className="mx-auto max-w-7xl"
         >
           <span className="mb-5 inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.24em] text-emerald-300 sm:text-xs sm:tracking-[0.3em]">
@@ -152,12 +283,19 @@ export default function Gallery() {
         </motion.div>
       </section>
 
+      {/* =========================
+          GALLERY
+      ========================== */}
       <section className="mx-auto max-w-7xl px-5 pt-8 sm:px-6 sm:pt-12">
         {/* Category filters */}
         <div
           className="mb-8 flex flex-wrap gap-2 sm:mb-10 sm:gap-3"
           role="group"
-          aria-label={isBn ? 'ছবির বিভাগ বাছাই করুন' : 'Filter project photos'}
+          aria-label={
+            isBn
+              ? 'ছবির বিভাগ বাছাই করুন'
+              : 'Filter project photos'
+          }
         >
           {categories.map((category) => (
             <button
@@ -191,7 +329,10 @@ export default function Gallery() {
                   opacity: 0,
                   y: reduceMotion ? 0 : 12,
                 }}
-                animate={{ opacity: 1, y: 0 }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                }}
                 exit={{
                   opacity: 0,
                   scale: reduceMotion ? 1 : 0.98,
@@ -201,7 +342,9 @@ export default function Gallery() {
                   delay: reduceMotion ? 0 : index * 0.025,
                 }}
                 onClick={() => setSelectedId(item.id)}
-                aria-label={`${isBn ? 'বড় করে দেখুন:' : 'View larger:'} ${item.title}`}
+                aria-label={`${
+                  isBn ? 'বড় করে দেখুন:' : 'View larger:'
+                } ${item.title}`}
                 className="group relative block aspect-[4/3] overflow-hidden border border-white/10 bg-slate-900 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
               >
                 <Image
@@ -218,7 +361,8 @@ export default function Gallery() {
                   <span className="mb-2 block text-[9px] font-semibold uppercase tracking-[0.16em] text-emerald-300 sm:text-[10px] sm:tracking-[0.2em]">
                     {
                       categories.find(
-                        (category) => category.id === item.category
+                        (category) =>
+                          category.id === item.category
                       )?.label
                     }
                   </span>
@@ -229,7 +373,10 @@ export default function Gallery() {
 
                   <span className="mt-3 inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.12em] text-white/80">
                     <Images className="h-3.5 w-3.5" />
-                    {isBn ? 'বড় করে দেখুন' : 'View photo'}
+
+                    {isBn
+                      ? 'বড় করে দেখুন'
+                      : 'View photo'}
                   </span>
                 </div>
               </motion.button>
@@ -238,13 +385,21 @@ export default function Gallery() {
         </motion.div>
       </section>
 
-      {/* Lightbox */}
+      {/* =========================
+          LIGHTBOX
+      ========================== */}
       <AnimatePresence>
         {selectedItem && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            initial={{
+              opacity: 0,
+            }}
+            animate={{
+              opacity: 1,
+            }}
+            exit={{
+              opacity: 0,
+            }}
             onMouseDown={(event) => {
               if (event.target === event.currentTarget) {
                 setSelectedId(null);
@@ -260,18 +415,23 @@ export default function Gallery() {
                 opacity: 0,
                 scale: reduceMotion ? 1 : 0.98,
               }}
-              animate={{ opacity: 1, scale: 1 }}
+              animate={{
+                opacity: 1,
+                scale: 1,
+              }}
               exit={{
                 opacity: 0,
                 scale: reduceMotion ? 1 : 0.98,
               }}
               className="relative flex max-h-[92svh] w-full max-w-6xl flex-col overflow-hidden border border-white/10 bg-slate-950"
             >
+              {/* Lightbox header */}
               <div className="flex items-center justify-between gap-4 border-b border-white/10 px-4 py-3 sm:px-5">
                 <div className="min-w-0">
                   <p className="truncate text-sm font-medium text-white">
                     {selectedItem.title}
                   </p>
+
                   <p className="mt-1 text-[10px] uppercase tracking-[0.12em] text-slate-500">
                     {selectedIndex + 1} / {filteredItems.length}
                   </p>
@@ -280,13 +440,16 @@ export default function Gallery() {
                 <button
                   type="button"
                   onClick={() => setSelectedId(null)}
-                  aria-label={isBn ? 'বন্ধ করুন' : 'Close image'}
+                  aria-label={
+                    isBn ? 'বন্ধ করুন' : 'Close image'
+                  }
                   className="flex h-10 w-10 shrink-0 items-center justify-center border border-white/15 text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
                 >
                   <X className="h-5 w-5" />
                 </button>
               </div>
 
+              {/* Image */}
               <div className="relative min-h-0 flex-1 bg-black">
                 <div className="relative h-[55svh] w-full sm:h-[68svh]">
                   <Image
@@ -298,12 +461,15 @@ export default function Gallery() {
                   />
                 </div>
 
+                {/* Previous / Next */}
                 {filteredItems.length > 1 && (
                   <>
                     <button
                       type="button"
                       onClick={() => moveLightbox(-1)}
-                      aria-label={isBn ? 'আগের ছবি' : 'Previous photo'}
+                      aria-label={
+                        isBn ? 'আগের ছবি' : 'Previous photo'
+                      }
                       className="absolute left-3 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center border border-white/25 bg-slate-950/65 text-white backdrop-blur-sm transition-colors hover:bg-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 sm:left-5"
                     >
                       <ArrowLeft className="h-5 w-5" />
@@ -312,7 +478,9 @@ export default function Gallery() {
                     <button
                       type="button"
                       onClick={() => moveLightbox(1)}
-                      aria-label={isBn ? 'পরের ছবি' : 'Next photo'}
+                      aria-label={
+                        isBn ? 'পরের ছবি' : 'Next photo'
+                      }
                       className="absolute right-3 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center border border-white/25 bg-slate-950/65 text-white backdrop-blur-sm transition-colors hover:bg-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 sm:right-5"
                     >
                       <ArrowRight className="h-5 w-5" />
