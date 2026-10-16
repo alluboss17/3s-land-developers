@@ -165,10 +165,10 @@ export default function Contact() {
                   </h3>
 
                   <a
-                    href="mailto:sawkat70@gmail.com"
+                    href="mailto:atinfo@3slanddevelopers.com"
                     className="mt-3 inline-block break-all text-base text-slate-950 transition-colors hover:text-emerald-800"
                   >
-                    sawkat70@gmail.com
+                    info@3slanddevelopers.com
                   </a>
                 </div>
               </div>

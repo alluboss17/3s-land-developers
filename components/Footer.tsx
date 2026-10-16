@@ -196,10 +196,10 @@ export default function Footer() {
               <Mail className="h-4 w-4 shrink-0 text-emerald-400" />
 
               <a
-                href="mailto:sawkat70@gmail.com"
+                href="mailto:info@3slanddevelopers.com"
                 className="break-all transition-colors hover:text-white"
               >
-                sawkat70@gmail.com
+                info@3slanddevelopers.com
               </a>
             </li>
           </ul>
