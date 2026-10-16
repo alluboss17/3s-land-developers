@@ -60,7 +60,7 @@ export default function Footer() {
             className="group inline-flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
           >
             <Image
-              src="/3s-logo-horizontal.png"
+              src="/3s-logo-approved.png"
               alt="3S Land Developers"
               width={1200}
               height={410}
