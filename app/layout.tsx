@@ -22,6 +22,9 @@ const siteUrl = 'https://www.3slanddevelopers.com';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  alternates: {
+  canonical: '/',
+},
 
   title: {
     default: '3S Land Developers | Abakash Lake View Society',
