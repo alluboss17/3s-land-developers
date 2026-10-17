@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
   display: 'swap',
 });
 
-const siteUrl = 'https://3s-land-developers.vercel.app';
+const siteUrl = 'https://www.3slanddevelopers.com';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
