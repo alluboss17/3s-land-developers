@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 
-const siteUrl = 'https://3s-land-developers.vercel.app';
+const siteUrl = 'https://www.3slanddevelopers.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const pages = ['', '/about', '/projects', '/gallery', '/contact'];
