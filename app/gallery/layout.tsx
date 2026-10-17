@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/gallery' },
   title: 'Project Gallery',
   description:
     'View site photographs showing land preparation, equipment, access areas, and development progress at Abakash Lake View Society.',
