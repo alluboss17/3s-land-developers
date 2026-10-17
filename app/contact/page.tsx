@@ -165,7 +165,7 @@ export default function Contact() {
                   </h3>
 
                   <a
-                    href="mailto:atinfo@3slanddevelopers.com"
+                    href="mailto:info@3slanddevelopers.com"
                     className="mt-3 inline-block break-all text-base text-slate-950 transition-colors hover:text-emerald-800"
                   >
                     info@3slanddevelopers.com
