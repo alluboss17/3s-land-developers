@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://3s-land-developers.vercel.app/sitemap.xml',
+    sitemap: 'https://www.3slanddevelopers.com/sitemap.xml',
   };
 }
