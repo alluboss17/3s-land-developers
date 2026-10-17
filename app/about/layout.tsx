@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/about' },
   title: 'About Us',
   description:
     'Learn about 3S Land Developers and its experience in housing, land development, land filling, and land trading.',
